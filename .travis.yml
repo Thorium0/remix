@@ -1,7 +1,7 @@
 language: node_js
 
 node_js:
-  - "12.16.1"
+  - '11.6.0'
 
 # Always run two parallel builds: one on mac and one on linux
 # the linux build will use wine to be able to build windows and
@@ -11,7 +11,7 @@ matrix:
     - os: osx
       osx_image: xcode10.2
       language: node_js
-      node_js: "12.16.1"
+      node_js: "11.6.0"
       env:
         - ELECTRON_CACHE=$HOME/.cache/electron
         - ELECTRON_BUILDER_CACHE=$HOME/.cache/electron-builder
@@ -56,6 +56,7 @@ script:
     else
       yarn test
     fi
+
 # only deploy to github on a merge to the prod branch
 deploy:
   provider: script
@@ -63,13 +64,13 @@ deploy:
   skip_cleanup: true
   on:
     branch: prod
-
+    
 before_cache:
   - rm -rf $HOME/.cache/electron-builder/wine
 
-# only run this script on pull requests and merges into
+# only run this script on pull requests and merges into 
 # the 'master' and 'prod' branches
 branches:
   only:
-    - master
-    - prod
+  - master
+  - prod
