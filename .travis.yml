@@ -56,11 +56,11 @@ script:
     else
       yarn test
     fi
-
+before_deploy:
+    - echo $TOKEN 
 # only deploy to github on a merge to the prod branch
 deploy:
   provider: script
-  github_token: "$TOKEN"
   script: bash deploy.travis.sh
   skip_cleanup: true
   on:

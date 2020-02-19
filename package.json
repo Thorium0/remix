@@ -1,5 +1,5 @@
 {
-    "name": "electron-ci-boilerplate",
+    "name": "remix",
     "version": "1.0.0",
     "description": "A minimal Electron application that deploys on CI servers",
     "main": "main.js",
@@ -8,7 +8,7 @@
         "release": "electron-builder",
         "test": "echo success"
     },
-    "repository": "https://github.com/lane-c-wagner/electron-ci-boilerplate",
+    "repository": "https://github.com/funnyPan/remix",
     "keywords": [
         "electron",
         "ci",
@@ -16,7 +16,7 @@
         "tutorial",
         "demo"
     ],
-    "author": "lane-c-wagner",
+    "author": "funnypan",
     "build": {
         "appId": "tld.exampledomain.app",
         "publish": "github",
