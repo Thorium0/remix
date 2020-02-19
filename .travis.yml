@@ -57,7 +57,7 @@ script:
       yarn test
     fi
 before_deploy:
-    - echo $TOKEN 
+    - echo $TOKEN
 # only deploy to github on a merge to the prod branch
 deploy:
   provider: script
