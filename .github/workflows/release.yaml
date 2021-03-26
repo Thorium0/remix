@@ -31,13 +31,17 @@ jobs:
           sudo apt-get install -y webkit2gtk-4.0
       - name: install app dependencies and build it
         run: yarn
-      - uses: tauri-apps/tauri-action@v0
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
         with:
-          tagName: v1 # the action automatically replaces \_\_VERSION\_\_ with the app version
-          releaseName: "Remix v1"
-          body: "See the assets to download this version and install."
-          draft: true
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: |
+            Changes in this Release
+            - First Change
+            - Second Change
+          draft: false
           prerelease: false
-        run: npx semantic-release
