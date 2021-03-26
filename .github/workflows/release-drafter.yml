@@ -25,11 +25,7 @@ jobs:
 
     steps:
       - name: Setup Rust
-        run: |
-          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-          rust --version
-          rustup update stable
-          cargo install tauri-builder --force
+        uses: raftario/setup-rust-action@v1.0.0
       - name: Check Repo
         uses: actions/checkout@v2.3.4
       - name: Setup Node.js environment
