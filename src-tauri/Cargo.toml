@@ -2,7 +2,7 @@
 name = "Remix"
 version = "0.1.0"
 description = "Music app build by netease && tauri"
-authors = "ManonIcu"
+authors = [ "ManonIcu" ]
 license = ""
 repository = ""
 default-run = "Remix"
@@ -18,8 +18,8 @@ tauri = { version = "0.9", features = [ "all-api" ] }
 winres = "0.1"
 
 [features]
-embedded-server = "tauri/embedded-server"
-no-server = "tauri/no-server"
+embedded-server = [ "tauri/embedded-server" ]
+no-server = [ "tauri/no-server" ]
 
 [[bin]]
 name = "Remix"
