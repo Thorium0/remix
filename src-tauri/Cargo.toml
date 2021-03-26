@@ -1,11 +1,11 @@
 [package]
-name = "Remix"
+name = "remix"
 version = "0.1.0"
 description = "Music app build by netease && tauri"
 authors = [ "ManonIcu" ]
 license = ""
 repository = ""
-default-run = "Remix"
+default-run = "remix"
 edition = "2018"
 build = "src/build.rs"
 
@@ -22,5 +22,5 @@ embedded-server = [ "tauri/embedded-server" ]
 no-server = [ "tauri/no-server" ]
 
 [[bin]]
-name = "Remix"
+name = "remix"
 path = "src/main.rs"
