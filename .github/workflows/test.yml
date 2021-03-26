@@ -5,32 +5,32 @@ on:
       - dev
 
 jobs:
-  create-release:
-    runs-on: ubuntu-latest
-    outputs:
-      RELEASE_UPLOAD_ID: ${{ steps.create_release.outputs.id }}
-
-    steps:
-      - uses: actions/checkout@v2
-      - name: setup node
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - name: get version
-        run: echo PACKAGE_VERSION=$(node -p "require('./package.json').version") >> $GITHUB_ENV
-      - name: create release
-        id: create_release
-        uses: actions/create-release@v1.1.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: app-v${{ env.PACKAGE_VERSION }}
-          release_name: "Desktop app v${{ env.PACKAGE_VERSION }}"
-          body: "See the assets to download this version and install."
-          draft: true
-          prerelease: false
+#  create-release:
+#    runs-on: ubuntu-latest
+#    outputs:
+#      RELEASE_UPLOAD_ID: ${{ steps.create_release.outputs.id }}
+#
+#    steps:
+#      - uses: actions/checkout@v2
+#      - name: setup node
+#        uses: actions/setup-node@v1
+#        with:
+#          node-version: 12
+#      - name: get version
+#        run: echo PACKAGE_VERSION=$(node -p "require('./package.json').version") >> $GITHUB_ENV
+#      - name: create release
+#        id: create_release
+#        uses: actions/create-release@v1.1.0
+#        env:
+#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#        with:
+#          tag_name: app-v${{ env.PACKAGE_VERSION }}
+#          release_name: "Desktop app v${{ env.PACKAGE_VERSION }}"
+#          body: "See the assets to download this version and install."
+#          draft: true
+#          prerelease: false
   build-tauri:
-    needs: create-release
+#    needs: create-release
     strategy:
       fail-fast: false
       matrix:
@@ -57,7 +57,6 @@ jobs:
       - name: install app dependencies and build it
         run: yarn
       - name: release
-        run:  npx semantic=release
-      - uses: tauri-apps/tauri-action@v0
+        run:  npx semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
