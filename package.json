@@ -17,6 +17,7 @@
     "vuex": "^3.4.0"
   },
   "devDependencies": {
+    "@semantic-release/github": "^7.2.0",
     "@tailwindcss/postcss7-compat": "^2.0.4",
     "@vue/cli-plugin-babel": "~4.5.12",
     "@vue/cli-plugin-eslint": "~4.5.12",
