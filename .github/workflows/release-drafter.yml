@@ -3,7 +3,7 @@ name: Release
 on:
   push:
     branches:
-      - master
+      - dev
 
 jobs:
   main:
@@ -32,6 +32,7 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: npm run tauri:build
+      - run:  echo ${{secrets.GITHUB_TOKEN}}
       - name: Release
         uses: cycjimmy/semantic-release-action@v2
         env:
