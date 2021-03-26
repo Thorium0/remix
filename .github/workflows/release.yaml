@@ -8,7 +8,7 @@ jobs:
   create-release:
     runs-on: ubuntu-latest
     outputs:
-      RELEASE_UPLOAD_ID: ${{ steps.create_release.outputs.id }}
+      RELEASE_UPLOAD_ID: ${{ steps.create_release.outputs.upload_id }}
 
     steps:
       - uses: actions/checkout@v2
@@ -35,8 +35,6 @@ jobs:
         platform: [macos-latest, ubuntu-latest, windows-latest]
 
     runs-on: ${{ matrix.platform }}
-    outputs:
-      RELEASE_UPLOAD_ID: ${{ steps.create_release.outputs.upload_id }}
     steps:
       - uses: actions/checkout@v2
       - name: setup node
