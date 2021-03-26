@@ -26,7 +26,7 @@ jobs:
     steps:
       - name: Setup Rust
         run: |
-          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -y
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
           rust --version
           rustup update stable
           cargo install tauri-builder --force
