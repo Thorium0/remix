@@ -10,7 +10,8 @@ jobs:
     runs-on:  ${{matrix.os}}
     strategy:
       matrix:
-        os: [ ubuntu-latest, macos-latest, windows-latest ]
+        #os: [ ubuntu-latest, macos-latest, windows-latest ]
+        os: [ ubuntu-latest, macos-latest ]
         node_version:
           - 12
           - 14
@@ -23,19 +24,26 @@ jobs:
     name: Node ${{ matrix.node_version }} - ${{ matrix.architecture }} on ${{ matrix.os }}
 
     steps:
-      - uses: actions/checkout@v2.3.4
+      - name: Setup Rust
+        run: |
+          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+          rust --version
+          rustup update stable
+          cargo install tauri-builder --force
+      - name: Check Repo
+        uses: actions/checkout@v2.3.4
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.5
         with:
           node-version: ${{matrix.node_version}}
           architecture: ${{matrix.architecture}}
-      - run: npm ci
-      - run: npm run build
-      - run: npm run tauri:build
-      - run:  echo ${{secrets.GITHUB_TOKEN}}
-      - name: Release
-        uses: cycjimmy/semantic-release-action@v2
-        env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - run: |
+          npm ci
+          npm run build
+          npm run tauri:build
+#      - name: Release
+#        uses: cycjimmy/semantic-release-action@v2
+#        env:
+#          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
 
