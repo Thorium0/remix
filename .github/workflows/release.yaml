@@ -35,6 +35,8 @@ jobs:
         platform: [macos-latest, ubuntu-latest, windows-latest]
 
     runs-on: ${{ matrix.platform }}
+    outputs:
+      RELEASE_UPLOAD_ID: ${{ steps.create_release.outputs.upload_id }}
     steps:
       - uses: actions/checkout@v2
       - name: setup node
@@ -55,7 +57,7 @@ jobs:
       - name: install app dependencies and build it
         # If using the Vue CLI plugin, tauri:build will be run automatically by tauri-action
         # and you can remove `&& yarn build` from this command
-        run: yarn && yarn build
+        run: yarn
       - uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
