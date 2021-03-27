@@ -10,7 +10,7 @@ import api from "../../config/api"
 
 let config = {
 	baseURL: api.base,
-	timeout: 60 * 1000, // Timeout
+	timeout: 15000, // Timeout
 	withCredentials: true, // Check cross-site Access-Control
 };
 
@@ -30,8 +30,8 @@ _axios.interceptors.request.use(
 // Add a response interceptor
 _axios.interceptors.response.use(
 	function (response) {
-		// Do something with response data
-		return response;
+		const {status,data}=response;
+		return status === 200 ? data: Promise.reject(data);
 	},
 	function (error) {
 		// Do something with response error

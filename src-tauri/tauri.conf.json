@@ -1,6 +1,6 @@
 {
 	"ctx": {
-		"debug": true,
+		"debug": false,
 		"exitOnPanic": true
 	},
 	"tauri": {
@@ -34,8 +34,8 @@
 		},
 		"window": {
 			"title": "Tauri App",
-			"width": 800,
-			"height": 600,
+			"width": 980,
+			"height": 634,
 			"resizable": true,
 			"fullscreen": false
 		},
