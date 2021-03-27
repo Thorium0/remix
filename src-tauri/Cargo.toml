@@ -1,8 +1,8 @@
 [package]
 name = "remix"
 version = "0.1.0"
-description = "A Tauri App"
-authors = [ "you" ]
+description = "Music app build by netease && tauri"
+authors = [ "ManonIcu" ]
 license = ""
 repository = ""
 default-run = "remix"
