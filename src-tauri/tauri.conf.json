@@ -1,8 +1,4 @@
 {
-  "package": {
-    "productName": "Remix",
-    "version": "0.1.0"
-  },
   "build": {
     "distDir": "../dist",
     "devPath": "http://localhost:8888",
