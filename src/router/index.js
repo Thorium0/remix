@@ -1,9 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-
 Vue.use(VueRouter);
-
 const routes = [
   {
     path: "/",
@@ -22,10 +20,16 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "hotArtist" */ "../views/HotArtist.vue"),
   },
+  {
+    path: "/broadcast-radio",
+    name: "BroadcastRadio",
+    component: () =>
+        import(/* webpackChunkName: "broadcastRadio" */ "../views/BroadcastRadio.vue"),
+  },
 ];
 
 const router = new VueRouter({
-  routes,
+	routes,
 });
 
 export default router;

@@ -1,0 +1,22 @@
+.aside {
+  @apply py-8;
+  &-item {
+    @apply leading-6 mb-4;
+    h2 {
+      @apply px-8 text-gray-200 font-bold opacity-50;
+    }
+    li {
+      @apply flex items-center relative px-8 cursor-pointer;
+      .svg-icon {
+        @apply mr-3.5;
+      }
+      &.active {
+        &:after {
+          @apply absolute block top-0 right-0 h-full w-0.5 bg-primary text-primary;
+          content: "";
+          color: #2ddae8;
+        }
+      }
+    }
+  }
+}

@@ -2,18 +2,17 @@
   <div class="new-songs px-4 py-3 rounded bg-subBlack">
     <h2 class="flex justify-between mb-4 items-center">
       新歌速递
-      <router-link to="/hot-artist" class="text-xs text-subText"
+      <router-link to="/hot-artist" class="text-xs text-subText opacity-50"
         >全部</router-link
       >
     </h2>
-    <div class="artist flex justify-between">
-      <!--			<div class="artist-item text-center" v-for="(item,key) in artists" :key="key">-->
-      <!--				<img :src="item.picUrl" :alt="item.name" class="block mb-2 w-16 h-16 sm:w-12 sm:h-12 object-cover rounded">-->
-      <!--				<h3 class="font-bold">-->
-      <!--					{{item.name}}-->
-      <!--					<span class="block font-normal text-xs text-subText">{{item.musicSize}}</span>-->
-      <!--				</h3>-->
-      <!--			</div>-->
+    <div class="artist flex flex-wrap justify-between">
+		<div class="artist-item flex items-center justify-between w-full text-center" v-for="(item,key) in songs" :key="key">
+			<img :src="item.album.blurPicUrl" :alt="item.album.name" class="block mb-2 w-12 h-12 object-cover rounded">
+			<h3 class="font-bold opacity-50">
+				{{item.name}}
+			</h3>
+      </div>
     </div>
   </div>
 </template>
@@ -30,8 +29,9 @@ export default {
     this.$axios({
       url: "/top/song?type=0",
     }).then((res) => {
-      console.log(res);
-      this.songs = res.song;
+      console.log("🚀 ~ file: NewSongs.vue ~ line 33 ~ created ~ res", res)
+	  const {data} = res
+      this.songs = data;
     });
   },
 };

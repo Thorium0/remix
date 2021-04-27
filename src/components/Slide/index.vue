@@ -25,6 +25,7 @@ export default {
         gap: "1rem",
         autoplay: true,
         focus: "center",
+		height:'180px'
       },
     };
   },
@@ -47,19 +48,5 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-@import "~@splidejs/splide/dist/css/themes/splide-default.min.css";
-.splide {
-  width: 100%;
-  overflow: hidden;
-}
-.splide__slide {
-  img {
-    @apply transition-all duration-500 ease-in-out;
-  }
-  &.is-active {
-    img {
-      @apply scale-150 transition-all duration-500 ease-in-out;
-    }
-  }
-}
+@import url("./index.scss");
 </style>
