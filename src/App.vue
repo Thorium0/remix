@@ -1,5 +1,5 @@
 <template>
-	<div class="flex overflow-hidden" id="app">
+	<div class="drag-region flex overflow-hidden" id="app">
 <!--		<Menu/>-->
 <!--		<router-view class="p-4 w-full"/>-->
 		{{version}}
