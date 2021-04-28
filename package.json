@@ -37,6 +37,8 @@
 		"autoprefixer": "^9.8.6",
 		"axios": "^0.21.1",
 		"babel-eslint": "^10.1.0",
+		"commitizen": "^4.2.3",
+		"cz-conventional-changelog": "^3.2.0",
 		"eslint": "^6.7.2",
 		"eslint-plugin-prettier": "^3.4.0",
 		"eslint-plugin-vue": "^6.2.2",
@@ -53,5 +55,10 @@
 		"vue-cli-plugin-axios": "0.0.4",
 		"vue-cli-plugin-style-resources-loader": "~0.1.5",
 		"vue-template-compiler": "^2.6.12"
+	},
+	"config": {
+		"commitizen": {
+			"path": "./node_modules/cz-conventional-changelog"
+		}
 	}
 }
