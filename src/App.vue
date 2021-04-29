@@ -1,19 +1,19 @@
 <template>
-	<div class="drag-region flex overflow-hidden" id="app">
-<!--		<Menu/>-->
-<!--		<router-view class="p-4 w-full"/>-->
-		{{version}}
+	<div class="flex overflow-hidden" id="app">
+		<Menu/>
+		<router-view class="p-4 w-full"/>
+		<Player/>
 	</div>
-<!--	<Player/>-->
 </template>
 
 <script>
 import {app} from "@tauri-apps/api"
-
+import {notification} from "@tauri-apps/api"
+console.log(notification)
 export default {
 	components:{
 		// Menu:()=>import("@/components/Menu")
-		// Player:()=>import("@/components/Player")
+		Player:()=>import("@/components/Player")
 	},
 	watch:{
 		$router(to,from){
@@ -25,10 +25,9 @@ export default {
 			version:''
 		}
 	},
-	created() {
-		app.getName().then(res=>{
-			console.log(res,"res")
-		})
+	async created() {
+		this.version = await app.getTauriVersion()
+		console.log(this.version)
 	}
 }
 </script>
