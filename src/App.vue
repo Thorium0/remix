@@ -1,5 +1,6 @@
 <template>
-	<div class="flex overflow-hidden" id="app">
+	<div class="flex overflow-hidden drag-region" id="app">
+		<TopBar/>
 		<Menu/>
 		<router-view class="p-4 w-full"/>
 		<Player/>
@@ -12,8 +13,9 @@ import {notification} from "@tauri-apps/api"
 console.log(notification)
 export default {
 	components:{
-		// Menu:()=>import("@/components/Menu")
-		Player:()=>import("@/components/Player")
+		Menu:()=>import("@/components/Menu"),
+		Player:()=>import("@/components/Player"),
+		TopBar:()=>import("@/components/TopBar")
 	},
 	watch:{
 		$router(to,from){

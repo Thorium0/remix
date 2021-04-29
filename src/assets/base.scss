@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 #app {
-  @apply w-screen h-screen text-white text-xs;
-	background-color: #ff987b;
+  @apply w-screen h-screen text-white text-xs bg-white;
 }
 .btn-primary {
   @apply block focus:outline-none text-white py-2.5 px-5 rounded-md hover:shadow-lg;

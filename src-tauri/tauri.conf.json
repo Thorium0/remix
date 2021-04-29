@@ -54,10 +54,11 @@
 		"windows": [
 			{
 				"title": "Remix",
-				"width": 800,
-				"height": 600,
+				"width": 900,
+				"height": 720,
 				"resizable": true,
-				"fullscreen": false
+				"fullscreen": false,
+				"decorations": false
 			}
 		],
 		"security": {
