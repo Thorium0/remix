@@ -1,13 +1,35 @@
 <template>
-	<div id="app">
-		<router-view/>
+	<div class="flex overflow-hidden drag-region" id="app">
+		<TopBar/>
+		<Menu/>
+		<router-view class="p-4 w-full"/>
+		<Player/>
 	</div>
 </template>
 
 <script>
+import {app} from "@tauri-apps/api"
+import {notification} from "@tauri-apps/api"
+console.log(notification)
 export default {
-	data() {
-		return {};
+	components:{
+		Menu:()=>import("@/components/Menu"),
+		Player:()=>import("@/components/Player"),
+		TopBar:()=>import("@/components/TopBar")
+	},
+	watch:{
+		$router(to,from){
+			console.log(to,from)
+		}
+	},
+	data(){
+		return {
+			version:''
+		}
+	},
+	async created() {
+		this.version = await app.getTauriVersion()
+		console.log(this.version)
 	}
-};
+}
 </script>

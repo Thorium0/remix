@@ -1,17 +1,26 @@
 {
-	"ctx": {
-		"debug": false,
-		"exitOnPanic": true
+	"package": {
+		"productName": "Remix",
+		"version": "0.1.0"
+	},
+	"build": {
+		"distDir": "../dist",
+		"devPath": "http://localhost:8888",
+		"beforeDevCommand": "npm run serve",
+		"beforeBuildCommand": "npm run build"
 	},
 	"tauri": {
-		"embeddedServer": {
-			"active": true
-		},
 		"bundle": {
 			"active": true,
 			"targets": "all",
 			"identifier": "com.tauri.dev",
-			"icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"],
+			"icon": [
+				"icons/32x32.png",
+				"icons/128x128.png",
+				"icons/128x128@2x.png",
+				"icons/icon.icns",
+				"icons/icon.ico"
+			],
 			"resources": [],
 			"externalBin": [],
 			"copyright": "",
@@ -22,34 +31,38 @@
 				"depends": [],
 				"useBootstrapper": false
 			},
-			"osx": {
+			"macOS": {
 				"frameworks": [],
 				"minimumSystemVersion": "",
-				"useBootstrapper": false
+				"useBootstrapper": false,
+				"exceptionDomain": "",
+				"signingIdentity": null,
+				"entitlements": null
 			},
-			"exceptionDomain": ""
+			"windows": {
+				"certificateThumbprint": null,
+				"digestAlgorithm": "sha256",
+				"timestampUrl": ""
+			}
+		},
+		"updater": {
+			"active": false
 		},
 		"allowlist": {
 			"all": true
 		},
-		"window": {
-			"title": "Tauri App",
-			"width": 980,
-			"height": 634,
-			"resizable": true,
-			"fullscreen": false
-		},
+		"windows": [
+			{
+				"title": "Remix",
+				"width": 900,
+				"height": 720,
+				"resizable": true,
+				"fullscreen": false,
+				"decorations": false
+			}
+		],
 		"security": {
 			"csp": "default-src blob: data: filesystem: ws: http: https: 'unsafe-eval' 'unsafe-inline'"
-		},
-		"inliner": {
-			"active": true
 		}
-	},
-	"build": {
-		"distDir": "../dist",
-		"devPath": "http://localhost:8888",
-		"beforeDevCommand": "npm run serve",
-		"beforeBuildCommand": "npm run build"
 	}
 }
