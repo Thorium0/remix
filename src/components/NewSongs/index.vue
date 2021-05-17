@@ -1,5 +1,5 @@
 <template>
-  <div class="new-songs px-4 py-3 rounded bg-subBlack">
+  <div class="new-songs px-4 py-3 rounded">
     <h2 class="flex justify-between mb-4 items-center">
       新歌速递
       <router-link to="/hot-artist" class="text-xs text-subText opacity-50"
