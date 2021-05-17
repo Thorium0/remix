@@ -1,6 +1,6 @@
 <template>
-  <div class="genres mr-4 p-4 rounded bg-subBlack">
-    <h2 class="flex justify-between mb-4 items-center">
+  <div class="genres mr-4">
+    <h2 class="flex mb-2 justify-between text-base leading-loose items-center">
       歌曲分类
       <router-link to="/hot-artist" class="text-xs text-subText opacity-50"
         >全部</router-link
@@ -45,9 +45,3 @@ export default {
   },
 };
 </script>
-
-<!--<style lang="scss" scoped>-->
-<!--.genres-item:nth-of-type(2n) {-->
-<!--	@apply ml-4;-->
-<!--}-->
-<!--</style>-->

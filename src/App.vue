@@ -1,21 +1,24 @@
 <template>
-	<div class="flex overflow-hidden drag-region" id="app">
-		<TopBar/>
-		<Menu/>
-		<router-view class="p-4 w-full"/>
+	<div class="flex" id="app">
+		<TopBar v-show="isApp"/>
+		<Sidebar/>
+		<div class="main flex flex-col flex-1">
+			<SearchArea/>
+<!--			<router-view class="p-4"/>-->
+		</div>
 		<Player/>
 	</div>
 </template>
 
 <script>
 import {app} from "@tauri-apps/api"
-import {notification} from "@tauri-apps/api"
-console.log(notification)
+
 export default {
 	components:{
-		Menu:()=>import("@/components/Menu"),
+		Sidebar:()=>import("@/components/Sidebar"),
 		Player:()=>import("@/components/Player"),
-		TopBar:()=>import("@/components/TopBar")
+		TopBar:()=>import("@/components/TopBar"),
+		SearchArea:()=>import("@/components/SearchArea")
 	},
 	watch:{
 		$router(to,from){
@@ -24,12 +27,18 @@ export default {
 	},
 	data(){
 		return {
-			version:''
+			version:'',
+			isApp:true
 		}
 	},
 	async created() {
-		this.version = await app.getTauriVersion()
-		console.log(this.version)
+		try{
+			this.version = await app.getTauriVersion()
+		}catch (e) {
+			console.log(e)
+			this.isApp=false;
+		}
+
 	}
 }
 </script>

@@ -6,7 +6,7 @@
 		<div class="minimize">
 			<span>&minus;</span>
 		</div>
-		<div class="zoom">
+		<div class="zoom" @click.stop="_fullScreen">
 			<span>&plus;</span>
 		</div>
 	</div>
@@ -19,6 +19,14 @@ export default {
 	methods:{
 		_close(){
 			app.exit(-1)
+		},
+		_fullScreen(){
+			if (!document.fullscreenElement){
+				// document.documentElement.requestFullscreen()
+			}
+		},
+		_minimize(){
+
 		}
 	}
 };

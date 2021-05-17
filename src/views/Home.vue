@@ -1,10 +1,12 @@
 <template>
-	<div class="home flex flex-wrap p-4 h-screen w-screen overflow-hidden">
-		<Slide />
-		<HotArtist/>
-		<div class="flex w-full">
-			<Genres class="w-1/2 mr-4 overflow-y-scroll h-auto" />
-			<NewSongs class="w-1/2 overflow-y-scroll h-auto" />
+	<div class="home p-4 h-screen w-screen overflow-hidden">
+		<div class="flex">
+			<Slide class="w-2/3"/>
+			<NewSongs class="w-1/3" />
+		</div>
+		<div class="flex">
+			<Genres class="w-2/3" />
+			<HotArtist class="w-1/3"/>
 		</div>
 	</div>
 </template>
@@ -16,7 +18,7 @@ export default {
     Slide: () => import("@/components/Slide"),
     HotArtist: () => import("@/components/HotArtist"),
     Genres: () => import("@/components/Genres"),
-    NewSongs: () => import("@/components/NewSongs"),
+    NewSongs: () => import("@/components/NewSongs")
   },
   data() {
     return {
@@ -40,9 +42,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.player {
-  @apply p-4;
-}
-</style>

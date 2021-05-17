@@ -1,37 +1,44 @@
 <template>
-	<div class="player absolute bottom-0 left-0 w-screen h-16 px-4 flex items-center justify-between z-50 bg-white">
-		<div class="song-detail flex items-center text-black font-medium">
-			<img :src="curSong.pic" :alt="curSong.title" class="mr-2 w-10 h-10 rounded-full">
+	<div class="player">
+		<div class="player-detail">
+			<img :src="curSong.pic" :alt="curSong.title">
 			<div class="detail text-sm">
-				{{curSong.title}}<em class="block not-italic text-xs opacity-50 font-normal">{{curSong.author}}</em>
+				{{curSong.title}}
+				<em>{{curSong.author}}</em>
 			</div>
 		</div>
-		<div class="operator flex flex-none px-4">
-			<div class="prev" id="prev"><svg-icon icon-class="prev" size="xl"></svg-icon></div>
-			<div class="play" id="play" @click="isPlaying?pauseSong():playSong()">
-				<svg-icon icon-class="pause" size="xl" v-if="isPlaying"></svg-icon>
-				<svg-icon icon-class="play" size="xl" v-else></svg-icon>
+		<div class="player-operator">
+			<div class="prev" id="prev"><Left size="24"/></div>
+			<div class="play mx-10" id="play" @click="isPlaying?pauseSong():playSong()">
+				<Pause v-if="isPlaying" size="24"/>
+				<Play v-else size="24"/>
 			</div>
-			<div class="next" id="next"><svg-icon icon-class="next" size="xl"></svg-icon></div>
+			<div class="next" id="next"><Right size="24"/></div>
 		</div>
 		<div class="cur h-full py-2 relative flex justify-between items-center flex-grow">
 			{{curSong.curTime || '00:00'}}<progress :value="curSong.percent" max="100" @click="setProgress($event)"></progress>{{curSong.durationTime || '00:00'}}
 		</div>
-		<div class="volume h-full flex items-center flex-none px-4">
+		<div class="player-volume">
 <!--			<svg-icon icon-class="volume-mute" class="mr-4" size="xl" @click.stop="volume=0"></svg-icon>-->
 <!--			<progress :value="volume" max="100" @click="setVolume($event)" class="mr-4 w-20"></progress>-->
-			<svg-icon icon-class="volume-notice" size="xl" @click.stop="volume=100"></svg-icon>
+			<VolumeNotice @click.stop="volume=100" size="24"/>
 		</div>
 		<audio :src="curSong.src" ref="audio" class="hidden"></audio>
 	</div>
 </template>
 
 <script>
-const faker = require("faker")
-faker.locale="zh-CN";
+import {Pause,Play,VolumeNotice,Left,Right} from "@icon-park/vue"
 
 export default {
 	name: "index",
+	components:{
+		Pause,
+		Play,
+		VolumeNotice,
+		Left,
+		Right
+	},
 	data(){
 		return{
 			isPlaying:false,
@@ -150,8 +157,29 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.player{
+	@apply fixed bottom-0 left-0 w-screen h-16 flex items-center z-50 bg-primary text-white;
+	&-detail{
+		@apply font-medium flex flex-none w-48 pl-4;
+		img{
+			@apply mr-2 w-10 h-10 rounded-full;
+		}
+		.detail{
+			@apply text-sm;
+		}
+		em{
+			@apply block not-italic text-xs opacity-70 font-normal;
+		}
+	}
+	&-operator{
+		@apply  w-44 flex flex-none;
+	}
+	&-volume{
+		@apply  w-1/12 h-full flex items-center flex-none justify-end pr-4;
+	}
+}
 progress{
-	@apply block w-full rounded bg-gray-100 h-1 appearance-none;
+	@apply block w-full rounded bg-gray-100 h-1 mx-4 appearance-none;
 	&::-webkit-progress-bar{
 		@apply bg-gray-100;
 	}

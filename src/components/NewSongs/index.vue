@@ -1,6 +1,6 @@
 <template>
-  <div class="new-songs px-4 py-3 rounded">
-    <h2 class="flex justify-between mb-4 items-center">
+  <div class="new-songs px-4">
+    <h2 class="flex mb-2 justify-between text-base leading-loose items-center">
       新歌速递
       <router-link to="/hot-artist" class="text-xs text-subText opacity-50"
         >全部</router-link
@@ -30,8 +30,8 @@ export default {
       url: "/top/song?type=0",
     }).then((res) => {
       console.log("🚀 ~ file: NewSongs.vue ~ line 33 ~ created ~ res", res)
-	  const {data} = res
-      this.songs = data;
+	  const {data=[]} = res
+      this.songs = Object.freeze(data.slice(0,3));
     });
   },
 };
