@@ -13,3 +13,7 @@
 .input-primary {
   @apply px-2 py-2 border-2 rounded-md border-gray-200 focus:outline-none focus:ring-1 focus:ring-pink-300 focus:border-transparent;
 }
+
+::-webkit-scrollbar {
+	display: none;
+}

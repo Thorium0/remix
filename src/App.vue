@@ -1,10 +1,11 @@
 <template>
 	<div class="flex" id="app">
-		<TopBar v-show="isApp"/>
 		<Sidebar/>
 		<div class="main flex flex-col flex-1">
-			<SearchArea/>
-<!--			<router-view class="p-4"/>-->
+<!--			<SearchArea/>-->
+			<keep-alive>
+				<router-view class="view p-4"/>
+			</keep-alive>
 		</div>
 		<Player/>
 	</div>
@@ -17,8 +18,7 @@ export default {
 	components:{
 		Sidebar:()=>import("@/components/Sidebar"),
 		Player:()=>import("@/components/Player"),
-		TopBar:()=>import("@/components/TopBar"),
-		SearchArea:()=>import("@/components/SearchArea")
+		// SearchArea:()=>import("@/components/SearchArea")
 	},
 	watch:{
 		$router(to,from){
@@ -42,3 +42,10 @@ export default {
 	}
 }
 </script>
+<style>
+.view{
+	max-height: calc(100vh - 4rem);
+	overflow-y: scroll;
+	scroll-behavior: smooth;
+}
+</style>

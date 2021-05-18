@@ -7,13 +7,36 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+	  meta:{
+    	keepAlive:true
+	  }
   },
   {
-    path: "/about",
-    name: "About",
+    path: "/discovery",
+    name: "Discovery",
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+      import(/* webpackChunkName: "discovery" */ "../views/Discovery/index.vue"),
+	  meta:{
+    	keepAlive:true
+	  }
   },
+	{
+		path: "/mv",
+		name: "MV",
+		component: () =>
+			import(/* webpackChunkName: "mv" */ "../views/MV/index.vue"),
+		meta:{
+			keepAlive:true
+		}
+	},{
+		path: "/cd",
+		name: "CD",
+		component: () =>
+			import(/* webpackChunkName: "cd" */ "../views/CD/index.vue"),
+		meta:{
+			keepAlive:true
+		}
+	},
   {
     path: "/hot-artist",
     name: "HotArtist",
@@ -25,6 +48,9 @@ const routes = [
     name: "BroadcastRadio",
     component: () =>
         import(/* webpackChunkName: "broadcastRadio" */ "../views/BroadcastRadio.vue"),
+	  meta:{
+    	keepAlive:true
+	  }
   },
 ];
 
