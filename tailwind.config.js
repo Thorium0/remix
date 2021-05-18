@@ -15,7 +15,6 @@ module.exports = {
     colors: {
       transparent: "transparent",
       current: "currentColor",
-
       black: colors.black,
       white: colors.white,
       gray: colors.coolGray,
@@ -29,7 +28,7 @@ module.exports = {
       // external
       subText: "#e8ecef",
       subBlack: "#18181d",
-      primary: "#00b7f8",
+      primary: "#2dd8e8",
     },
     spacing: {
       px: "1px",
