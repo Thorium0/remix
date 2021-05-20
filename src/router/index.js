@@ -1,61 +1,70 @@
-import Vue from "vue";
-import VueRouter from "vue-router";
-import Home from "../views/Home.vue";
-Vue.use(VueRouter);
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import Home from '@/views/Home'
+Vue.use(VueRouter)
 const routes = [
   {
-    path: "/",
-    name: "Home",
+    path: '/',
+    name: 'Home',
     component: Home,
-	  meta:{
-    	keepAlive:true
+	  meta: {
+    	keepAlive: true
 	  }
   },
   {
-    path: "/discovery",
-    name: "Discovery",
+    path: '/discovery',
+    name: 'Discovery',
     component: () =>
-      import(/* webpackChunkName: "discovery" */ "../views/Discovery/index.vue"),
-	  meta:{
-    	keepAlive:true
+      import(/* webpackChunkName: "discovery" */ '@/views/Discovery/index.vue'),
+	  meta: {
+    	keepAlive: true
 	  }
   },
-	{
-		path: "/mv",
-		name: "MV",
-		component: () =>
-			import(/* webpackChunkName: "mv" */ "../views/MV/index.vue"),
-		meta:{
-			keepAlive:true
-		}
-	},{
-		path: "/cd",
-		name: "CD",
-		component: () =>
-			import(/* webpackChunkName: "cd" */ "../views/CD/index.vue"),
-		meta:{
-			keepAlive:true
-		}
-	},
   {
-    path: "/hot-artist",
-    name: "HotArtist",
+    path: '/mv',
+    name: 'MV',
     component: () =>
-      import(/* webpackChunkName: "hotArtist" */ "../views/HotArtist.vue"),
+      import(/* webpackChunkName: "mv" */ '@/views/MV/index.vue'),
+    meta: {
+      keepAlive: true
+    }
+  }, {
+    path: '/cd',
+    name: 'CD',
+    component: () =>
+      import(/* webpackChunkName: "cd" */ '@/views/CD/index.vue'),
+    meta: {
+      keepAlive: true
+    }
   },
   {
-    path: "/broadcast-radio",
-    name: "BroadcastRadio",
+    path: '/voice',
+    name: 'Voice',
     component: () =>
-        import(/* webpackChunkName: "broadcastRadio" */ "../views/BroadcastRadio.vue"),
-	  meta:{
-    	keepAlive:true
+      import(/* webpackChunkName: "cd" */ '@/views/Voice/index.vue'),
+    meta: {
+      keepAlive: true
+    }
+  },
+  {
+    path: '/hot-artist',
+    name: 'HotArtist',
+    component: () =>
+      import(/* webpackChunkName: "hotArtist" */ '@/views/HotArtist.vue')
+  },
+  {
+    path: '/broadcast-radio',
+    name: 'BroadcastRadio',
+    component: () =>
+      import(/* webpackChunkName: "broadcastRadio" */ '@/views/Radio'),
+	  meta: {
+    	keepAlive: true
 	  }
-  },
-];
+  }
+]
 
 const router = new VueRouter({
-	routes,
-});
+  routes
+})
 
-export default router;
+export default router

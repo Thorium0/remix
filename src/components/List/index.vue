@@ -2,7 +2,7 @@
 	<div class="list">
 		<div class="item" v-for="item in list" :key="item.id">
 			<div class="avatar">
-				<img :src="item.cover || item.picUrl" :alt="item.name">
+				<img class="lazyload" src="/lazy.png" :data-src="item.cover || item.picUrl" :alt="item.name">
 				<Play size="48" fill="#ffffff"/>
 			</div>
 			<p>{{item.name}}</p>
@@ -11,6 +11,7 @@
 </template>
 <script>
 import { Play } from "@icon-park/vue";
+import 'lazysizes';
 
 export default {
 	name: "List",
@@ -23,6 +24,11 @@ export default {
 			default:()=>[],
 			required:true
 		}
+	},
+	mounted() {
+		this.$nextTick(()=>{
+
+		})
 	}
 };
 
@@ -32,9 +38,9 @@ export default {
 .list{
 	@apply grid grid-cols-5 gap-5 leading-10;
 	.avatar{
-		@apply relative cursor-pointer overflow-hidden;
+		@apply relative cursor-pointer shadow-lg rounded overflow-hidden;
 		img{
-			@apply block w-full h-full shadow-lg rounded duration-700 ease-in-out object-cover;
+			@apply block w-full h-full duration-700 ease-in-out object-cover;
 			transform: none;
 		}
 		.i-icon{

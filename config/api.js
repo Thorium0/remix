@@ -6,5 +6,5 @@
  * @ Description:
  */
 module.exports = {
-	base: "https://netease-cloud-music-api-rho-three.vercel.app/"
-};
+  base: 'https://netease-cloud-music-api-rho-three.vercel.app/'
+}

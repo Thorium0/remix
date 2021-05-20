@@ -2,7 +2,7 @@
 	<div class="sidebar">
 		<h1>Remix</h1>
 		<div class="sidebar-item">
-			<router-link v-for="item in menus" :to="{path:item.path}" :key="item.text">
+			<router-link v-for="item in menus" :to="{path:item.path}" :key="item.text" :class="{active:cur===item.path}">
 				<span class="text-left"><component :is="item.iconClass" size="18"/></span>
 				<span class="mx-4 text-sm font-normal">{{item.text}}</span>
 			</router-link>
@@ -16,6 +16,11 @@ export default {
 	name: "index",
 	components:{
 		Home,FindOne,CategoryManagement,Cd,Voice,BroadcastRadio,Heartbeat,Undo,LocalPin
+	},
+	computed:{
+		cur(){
+			return this.$route.path;
+		}
 	},
 	data(){
 		return{
@@ -36,7 +41,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .sidebar {
-	@apply flex-none py-4 pr-4 text-black w-48 border-r border-gray-100;
+	@apply flex-none py-4 pr-4 text-black border-r border-gray-100;
 	h1{
 		@apply px-4 text-2xl text-center mb-8 text-primary;
 		font-family: "Dancing Script",cursive;
@@ -56,7 +61,7 @@ export default {
 				transform: translateX(-100%);
 				@apply block absolute w-full h-full transition-all top-0 left-0 rounded-r-full duration-300 bg-primary shadow-lg;
 			}
-			&:hover{
+			&.active,&:hover{
 				@apply text-white;
 				&:after{
 					//@apply -translate-y-0;

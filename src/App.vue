@@ -1,11 +1,11 @@
 <template>
-	<div class="flex" id="app">
+	<div id="app">
 		<Sidebar/>
-		<div class="main flex flex-col flex-1">
-<!--			<SearchArea/>-->
+		<div class="main">
 			<keep-alive>
-				<router-view class="view p-4"/>
+				<router-view class="view"/>
 			</keep-alive>
+			<Loading v-show="loading"/>
 		</div>
 		<Player/>
 	</div>
@@ -18,7 +18,7 @@ export default {
 	components:{
 		Sidebar:()=>import("@/components/Sidebar"),
 		Player:()=>import("@/components/Player"),
-		// SearchArea:()=>import("@/components/SearchArea")
+		Loading:()=>import("@/components/Loading/index.vue")
 	},
 	watch:{
 		$router(to,from){
@@ -28,7 +28,8 @@ export default {
 	data(){
 		return {
 			version:'',
-			isApp:true
+			isApp:true,
+			loading:false
 		}
 	},
 	async created() {
@@ -42,10 +43,13 @@ export default {
 	}
 }
 </script>
-<style>
-.view{
-	max-height: calc(100vh - 4rem);
-	overflow-y: scroll;
+<style lang="scss">
+.main{
+	@apply relative flex overflow-hidden overflow-y-scroll pb-4;
+	height: calc(100vh - 4rem);
 	scroll-behavior: smooth;
+}
+.view{
+	@apply w-full h-full p-4;
 }
 </style>

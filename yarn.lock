@@ -902,11 +902,6 @@
     "@babel/helper-validator-identifier" "^7.14.0"
     to-fast-properties "^2.0.0"
 
-"@boxslider/slider@^1.1.2":
-  version "1.1.2"
-  resolved "https://mirrors.huaweicloud.com/repository/npm/@boxslider/slider/-/slider-1.1.2.tgz#395ccc0e9a594a61bf047cd3d0ede69c08c71616"
-  integrity sha512-csgj9GThGGDh4fkfUcJ7eKy6+vdT8nZ8oCjx3N+XrbMF2QQgJhgKoz0L4FC9vsT1Ui+1AimPKRLoIOt7Tg3wQA==
-
 "@commitlint/cli@^12.1.1":
   version "12.1.4"
   resolved "https://mirrors.huaweicloud.com/repository/npm/@commitlint/cli/-/cli-12.1.4.tgz#af4d9dd3c0122c7b39a61fa1cd2abbad0422dbe0"
@@ -1177,6 +1172,11 @@
   integrity sha512-PyRA9sm1Yayuj5OIoJ1hGt2YISX45w9WcFbh6ddT0Z/0yaFxOtGLInr4jUfU1EAFVs0Yfyfev4RNwBlUaHdlDQ==
   dependencies:
     defer-to-connect "^2.0.0"
+
+"@tailwindcss/line-clamp@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@tailwindcss/line-clamp/-/line-clamp-0.2.0.tgz#7f30f26ed3835d64d1eb5a9b0d60cf5291dd2a3b"
+  integrity sha512-+jXSdRK3/9V/BCPCr+iNpMMhxWMMv62vn/AS2b3/ClmueGuhCijW3bUwO1IiHnE7uCaF74Sli8jUCv9djwvpLg==
 
 "@tailwindcss/postcss7-compat@npm:@tailwindcss/postcss7-compat@^2.1.2", "tailwindcss@npm:@tailwindcss/postcss7-compat@^2.1.2":
   version "2.1.2"
@@ -1980,6 +1980,11 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://mirrors.huaweicloud.com/repository/npm/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
   integrity sha1-SlKCrBZHKek2Gbz9OtFR+BfOkfU=
+
+animejs@^3.2.1:
+  version "3.2.1"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/animejs/-/animejs-3.2.1.tgz#de9fe2e792f44a777a7fdf6ae160e26604b0cdda"
+  integrity sha512-sWno3ugFryK5nhiDm/2BKeFCpZv7vzerWUcUPyAZLDhMek3+S/p418ldZJbJXo5ZUOpfm2kP2XRO4NJcULMy9A==
 
 ansi-align@^3.0.0:
   version "3.0.0"
@@ -7265,9 +7270,14 @@ lodash.uniq@^4.5.0:
   resolved "https://mirrors.huaweicloud.com/repository/npm/lodash.uniq/-/lodash.uniq-4.5.0.tgz#d0225373aeb652adc1bc82e4945339a842754773"
   integrity sha1-0CJTc662Uq3BvILklFM5qEJ1R3M=
 
-lodash@^4.0.0, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.3, lodash@~4.17.10:
+lodash@^4.0.0, lodash@^4.17.11, lodash@^4.17.12, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.3, lodash@~4.17.10:
   version "4.17.21"
   resolved "https://mirrors.huaweicloud.com/repository/npm/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
+  integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
+
+lodash@^4.17.21:
+  version "4.17.21"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
 
 log-symbols@^2.2.0:
@@ -11606,6 +11616,11 @@ vue-hot-reload-api@^2.3.0:
   resolved "https://mirrors.huaweicloud.com/repository/npm/vue-hot-reload-api/-/vue-hot-reload-api-2.3.4.tgz#532955cc1eb208a3d990b3a9f9a70574657e08f2"
   integrity sha512-BXq3jwIagosjgNVae6tkHzzIk6a8MHFtzAdwhnV5VlvPTFxDCvIttgSiHWjdGoTJvXtmRu5HacExfdarRcFhog==
 
+vue-lazysizes@^1.0.5:
+  version "1.0.5"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/vue-lazysizes/-/vue-lazysizes-1.0.5.tgz#1287511847538f52dcaf715761cc97d8eb684f9b"
+  integrity sha512-VbcVWpYccRF8EM9qEVRw+aEWrtyaYgQD9zQdyy+kQqly8F6+mBmKU7uxbphcziGxulZbJ4RFsjAhWqzcjFHszA==
+
 "vue-loader-v16@npm:vue-loader@^16.1.0":
   version "16.2.0"
   resolved "https://mirrors.huaweicloud.com/repository/npm/vue-loader/-/vue-loader-16.2.0.tgz#046a53308dd47e58efe20ddec1edec027ce3b46e"
@@ -11656,6 +11671,11 @@ vue@^2.6.12:
   version "2.6.12"
   resolved "https://mirrors.huaweicloud.com/repository/npm/vue/-/vue-2.6.12.tgz#f5ebd4fa6bd2869403e29a896aed4904456c9123"
   integrity sha512-uhmLFETqPPNyuLLbsKz6ioJ4q7AZHzD8ZVFNATNyICSZouqP2Sz0rotWQC8UNBF6VGSCs5abnKJoStA6JbCbfg==
+
+vueperslides@^2.15.0:
+  version "2.15.0"
+  resolved "https://mirrors.huaweicloud.com/repository/npm/vueperslides/-/vueperslides-2.15.0.tgz#09036d2fa68dd312331f7a130a34c78482824f46"
+  integrity sha512-bPguAC8y+ADx/GImInPPnde+n3SVO2BuvmvlzYtHR0nc3pwkghrKGYiKjCgBa0hNY8vEDnG/q2mzIx0G0bUbFA==
 
 vuex@^3.6.2:
   version "3.6.2"
