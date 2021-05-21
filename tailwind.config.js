@@ -918,7 +918,7 @@ module.exports = {
     whitespace: ['responsive'],
     width: ['responsive'],
     wordBreak: ['responsive'],
-    zIndex: ['responsive', 'focus-within', 'focus']
+    zIndex: ['responsive', 'focus-within', 'focus'],
   },
   plugins: [
 	  require('@tailwindcss/line-clamp'),

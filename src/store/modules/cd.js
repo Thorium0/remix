@@ -1,15 +1,18 @@
 import {getNewestCD} from "@/api/cd"
+import {isObject,isArray} from "@/utils";
 
 export default {
 	namespaced:true,
 	state:{
-		list:[],
+		albums:{
+			albumProducts:[]
+		},
 	},
 	actions:{
-		async GetList({commit}){
+		async GetList({commit},payload){
 			try{
-				const {albums} = await getNewestCD();
-				commit("SET_STATE",{name:'list',data:albums})
+				const data = await getNewestCD(payload);
+				commit("SET_STATE",{name:'albums',data})
 			}catch (e) {
 				console.log(e)
 			}
@@ -17,7 +20,7 @@ export default {
 	},
 	mutations:{
 		SET_STATE(state,{name,data}){
-			state[name]=Object.freeze(data || [])
+			state[name]=isObject(data)?{...state[name],...data}:isArray(data)?Object.freeze(data || []):data
 		}
 	}
 }

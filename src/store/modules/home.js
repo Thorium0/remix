@@ -1,4 +1,5 @@
 import {getBanners,getRecSongs,getRecMV,getRecDJ} from "@/api/home"
+import {isArray,isObject} from "@/utils";
 
 export default {
 	namespaced:true,
@@ -30,7 +31,7 @@ export default {
 	},
 	mutations:{
 		SET_STATE(state,{name,data}){
-			state[name]=Object.freeze(data || [])
+			state[name]=isObject(data)?{...state[name],...data}:isArray(data)?Object.freeze(data || []):data
 		}
 	}
 }

@@ -3,9 +3,10 @@ import './assets/base.scss'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import to from "await-to-js"
+import 'lazysizes';
+import anime from "animejs"
 
-Vue.prototype.$to=to;
+Vue.prototype.$anime=anime
 
 new Vue({
   router,
