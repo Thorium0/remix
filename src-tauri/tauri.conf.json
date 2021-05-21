@@ -5,7 +5,7 @@
 	},
 	"build": {
 		"distDir": "../dist",
-		"devPath": "http://localhost:8888",
+		"devPath": "http://localhost:8889",
 		"beforeDevCommand": "npm run serve",
 		"beforeBuildCommand": "npm run build"
 	},
@@ -57,8 +57,7 @@
 				"width": 900,
 				"height": 720,
 				"resizable": true,
-				"fullscreen": false,
-				"decorations": false
+				"fullscreen": false
 			}
 		],
 		"security": {

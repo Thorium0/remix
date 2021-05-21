@@ -36,7 +36,7 @@ export default {
 
 <style scoped lang="scss">
 .login-search{
-	@apply  flex justify-between items-center py-8 px-4;
+	@apply flex justify-between items-center py-4 px-4;
 	.search{
 		@apply relative flex-none w-3/4;
 		input{

@@ -1,10 +1,11 @@
 <template>
-	<div class="flex" id="app">
-		<TopBar v-show="isApp"/>
+	<div id="app">
 		<Sidebar/>
-		<div class="main flex flex-col flex-1">
-			<SearchArea/>
-<!--			<router-view class="p-4"/>-->
+		<div class="main">
+			<keep-alive>
+				<router-view class="view"/>
+			</keep-alive>
+			<Loading v-show="loading"/>
 		</div>
 		<Player/>
 	</div>
@@ -12,13 +13,13 @@
 
 <script>
 import {app} from "@tauri-apps/api"
+import {mapState} from "vuex"
 
 export default {
 	components:{
 		Sidebar:()=>import("@/components/Sidebar"),
 		Player:()=>import("@/components/Player"),
-		TopBar:()=>import("@/components/TopBar"),
-		SearchArea:()=>import("@/components/SearchArea")
+		Loading:()=>import("@/components/Loading/index.vue")
 	},
 	watch:{
 		$router(to,from){
@@ -28,9 +29,12 @@ export default {
 	data(){
 		return {
 			version:'',
-			isApp:true
+			isApp:true,
 		}
 	},
+	computed:mapState({
+		loading:'loading'
+	}),
 	async created() {
 		try{
 			this.version = await app.getTauriVersion()
@@ -38,7 +42,16 @@ export default {
 			console.log(e)
 			this.isApp=false;
 		}
-
 	}
 }
 </script>
+<style lang="scss">
+.main{
+	@apply relative flex overflow-hidden overflow-y-scroll pb-4;
+	height: calc(100vh - 4rem);
+	scroll-behavior: smooth;
+}
+.view{
+	@apply w-full h-full p-4;
+}
+</style>
