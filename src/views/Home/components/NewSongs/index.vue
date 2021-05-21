@@ -1,31 +1,16 @@
 <template>
-	<Recommend
-		:title="'推荐歌单'"
-		:to="'/discovery'"
-		:list="list"
-		name="songs"
-	/>
+	<Recommend :title="'推荐歌单'" :to="'/discovery'" :list="songs" name="songs" />
 </template>
 
 <script>
+import {mapState} from "vuex"
 export default {
-	name: "NewSongs",
 	components:{
 		Recommend:()=>import("@/components/Recommend/index.vue")
 	},
-	data() {
-		return {
-			list: [],
-		};
-	},
-	created() {
-		this.$axios({
-			url: "/personalized?limit=12",
-		}).then((res) => {
-			console.log("🚀 ~ file: NewSongs.vue ~ line 33 ~ created ~ res", res)
-			const {result} = res
-			this.list = Object.freeze(result);
-		});
-	},
+	name: "NewSongs",
+	computed:mapState('home',[
+		'songs'
+	])
 };
 </script>

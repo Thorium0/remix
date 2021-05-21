@@ -13,6 +13,7 @@
 
 <script>
 import {app} from "@tauri-apps/api"
+import {mapState} from "vuex"
 
 export default {
 	components:{
@@ -29,9 +30,11 @@ export default {
 		return {
 			version:'',
 			isApp:true,
-			loading:false
 		}
 	},
+	computed:mapState({
+		loading:'loading'
+	}),
 	async created() {
 		try{
 			this.version = await app.getTauriVersion()
@@ -39,7 +42,6 @@ export default {
 			console.log(e)
 			this.isApp=false;
 		}
-
 	}
 }
 </script>

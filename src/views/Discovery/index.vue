@@ -6,36 +6,15 @@
 
 <script>
 import List from "@/components/List/index.vue"
+import {mapState} from "vuex";
 export default {
 	name: "Discovery",
 	components: {
 		List
 	},
-	data:()=>({
-		list: [],
-	}),
+	computed:mapState('discovery',['list']),
 	created() {
-		this.init();
-	},
-	mounted() {},
-	methods: {
-		init() {
-			// this.$axios({
-			//   methods: "POST",
-			//   url: "/discoverypage/dragon/ball",
-			// }).then((res) => {
-			//   const { data } = res;
-			//   this.ball = Object.freeze(data || []);
-			// });
-			this.$axios({
-				methods:"POST",
-				url:"/personalized"
-			}).then(res=>{
-				console.log(res)
-				const {result}=res;
-				this.list=Object.freeze(result);
-			})
-		},
-	},
+		this.$store.dispatch("discovery/GetList")
+	}
 };
 </script>

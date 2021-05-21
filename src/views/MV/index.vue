@@ -9,13 +9,13 @@
 </template>
 <script>
 import List from "@/components/List/index.vue"
+import {mapState,mapActions} from "vuex"
 export default {
 	name:"MV",
 	components: {
 		List
 	},
 	data:()=>({
-		list:[],
 		area:['全部','内地','港台','欧美','日本','韩国'],
 		type:['全部','官方版','原生','现场版','网易出品'],
 		params:{
@@ -23,23 +23,15 @@ export default {
 			type:'全部'
 		}
 	}),
+	computed:mapState('mv',['list']),
 	created() {
-		this.init()
+		this.GetList(this.params)
 	},
 	methods:{
-		init(){
-			const {area,type}=this.params;
-			this.$axios({
-				methods:"POST",
-				url:`/mv/all?area=${area}&type=${type}`
-			}).then(res=>{
-				const {data} = res;
-				this.list=Object.freeze(data)
-			})
-		},
+		...mapActions("mv",['GetList']),
 		_params(val,type){
 			this.params[type]=val;
-			this.init();
+			this.GetList(this.params)
 		}
 	}
 }

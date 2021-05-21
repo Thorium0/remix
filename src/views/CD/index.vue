@@ -6,28 +6,15 @@
 
 <script>
 import List from "@/components/List/index.vue"
+import {mapState} from "vuex"
 export default {
 	name: "CD",
 	components:{
 		List
 	},
-	data:()=>({
-		list:[]
-	}),
+	computed:mapState('cd',['list']),
 	created() {
-		this.init()
-	},
-	methods:{
-		init(){
-			this.$axios({
-				methods:"POST",
-				url:"/album/newest"
-			}).then(res=>{
-				console.log(res)
-				const {albums} = res;
-				this.list=Object.freeze(albums)
-			})
-		}
+		this.$store.dispatch("cd/GetList")
 	}
 };
 

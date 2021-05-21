@@ -9,13 +9,13 @@
 </template>
 <script>
 import List from "@/components/List/index.vue"
+import {mapState,mapActions} from "vuex"
 export default {
 	name:"Voice",
 	components: {
 		List
 	},
 	data:()=>({
-		list:[],
 		area:[{label:'全部',value:'-1'},{label:'华语',value:'7'},{label:'欧美',value:'96'},{label:'日本',value:'8'},{label:'韩国',value:'16'},{label:'其他',value:'0'}],
 		type:[{label:'全部',value:'-1'},{label:'男歌手',value:'1'},{label:'女歌手',value:'2'},{label:'乐队',value:'3'}],
 		params:{
@@ -23,23 +23,15 @@ export default {
 			type:'-1'
 		}
 	}),
+	computed:mapState('voice',['list']),
 	created() {
-		this.init()
+		this.GetList(this.params)
 	},
 	methods:{
-		init(){
-			const {area,type}=this.params;
-			this.$axios({
-				methods:"POST",
-				url:`/artist/list?area=${area}&type=${type}`
-			}).then(res=>{
-				const {artists} = res;
-				this.list=Object.freeze(artists)
-			})
-		},
+		...mapActions('voice',['GetList']),
 		_params(val,type){
 			this.params[type]=val;
-			this.init();
+			this.GetList(this.params)
 		}
 	}
 }

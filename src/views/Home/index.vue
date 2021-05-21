@@ -16,11 +16,8 @@ export default {
   		RecRadio:()=>import("./components/RecRadio/index.vue"),
   		RecMV:()=>import("./components/RecMV/index.vue")
 	},
-	data:()=>({
-		data: [],
-	}),
-	created() {},
-	mounted() {},
-	methods: {},
+	created() {
+		this.$store.dispatch("home/GetList");
+	}
 };
 </script>
