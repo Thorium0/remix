@@ -3,9 +3,7 @@ import './assets/base.scss'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import to from "await-to-js"
-
-Vue.prototype.$to=to;
+import 'lazysizes';
 
 new Vue({
   router,

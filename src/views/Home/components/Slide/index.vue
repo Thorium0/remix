@@ -7,7 +7,7 @@
 			:gap="1.5"
 			:arrowsOutside="false"
 			fixed-height="140px"
-			:breakpoints="breakPoints">
+			:breakpoints="breakPoints" v-show="banners.length">
 			<vueper-slide v-for="item in banners" :key="item.bannerId" :image="item.imageUrl"/>
 		</vueper-slides>
 	</div>
@@ -43,8 +43,6 @@ export default {
 			}
 		}
 	}),
-	computed:mapState({
-		banners:state=>state.home.banners
-	})
+	computed:mapState('home',['banners'])
 };
 </script>

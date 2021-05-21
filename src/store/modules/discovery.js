@@ -7,11 +7,14 @@ export default {
 	},
 	actions:{
 		async GetList({commit}){
+			commit("SET_STATE",{name:'loading',data:true},{root:true})
 			try{
 				const {result} = await getDiscovery();
 				commit("SET_STATE",{name:'list',data:result})
 			}catch (e) {
 				console.log(e)
+			}finally {
+				commit("SET_STATE",{name:'loading',data:false},{root:true})
 			}
 		}
 	},
