@@ -7,7 +7,8 @@
 </template>
 
 <script>
-import {mapState} from "vuex"
+import {mapState,mapActions} from "vuex"
+
 export default {
 	name: "BroadcastRadio",
 	data(){
@@ -17,10 +18,24 @@ export default {
 			active:0
 		}
 	},
-	computed:mapState('radio',['list']),
+	computed:mapState('radio',['list','loading']),
 	created() {
-		this.$store.dispatch("radio/GetList")
-	}
+		this.GetList().then(_=>{
+			this.$nextTick(_=>{
+				this.$anime({
+					targets: '.broadcast-radio .broadcast-radio-item',
+					scale: [
+						{value: .1, easing: 'easeOutSine', duration: 1000},
+						{value: 1, easing: 'easeInOutQuad', duration: 1000}
+					],
+					opacity:[0,1],
+					duration: 500,
+					delay: this.$anime.stagger(100, {from: 'center'})
+				});
+			})
+		})
+	},
+	methods:mapActions("radio",['GetList'])
 };
 </script>
 
@@ -29,7 +44,7 @@ export default {
 	@apply grid gap-4 grid-cols-3 h-full;
 	&-item{
 		background-color: #ff8e99;
-		@apply flex items-center justify-center cursor-pointer transition duration-300 ease-in-out text-white text-base;
+		@apply flex items-center justify-center cursor-pointer text-white text-base;
 	}
 }
 </style>

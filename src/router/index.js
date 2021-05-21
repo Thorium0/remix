@@ -68,7 +68,7 @@ const routes = [
 		name: 'BroadcastRadio',
 		component: () => import(/* webpackChunkName: "broadcastRadio" */ '@/views/Radio'),
 		meta: {
-			keepAlive: true
+			// keepAlive: true
 		}
 	}
 ]

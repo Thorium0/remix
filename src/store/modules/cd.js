@@ -1,4 +1,5 @@
 import {getNewestCD} from "@/api/cd"
+import {isObject,isArray} from "@/utils";
 
 export default {
 	namespaced:true,
@@ -19,7 +20,7 @@ export default {
 	},
 	mutations:{
 		SET_STATE(state,{name,data}){
-			state[name]=Object.freeze(data || [])
+			state[name]=isObject(data)?{...state[name],...data}:isArray(data)?Object.freeze(data || []):data
 		}
 	}
 }
