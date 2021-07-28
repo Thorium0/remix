@@ -1,15 +1,17 @@
-import Vue from 'vue'
+import * as Vue from 'vue'
 import './assets/base.scss'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import 'lazysizes';
-import anime from "animejs"
+import 'lazysizes'
+import anime from 'animejs'
 
-Vue.prototype.$anime=anime
+window.$vueApp.config.globalProperties.$anime = anime
 
-new Vue({
-  router,
-  store,
-  render: (h) => h(App)
-}).$mount('#app')
+window.$vueApp = Vue.createApp(App)
+window.$vueApp.use(router)
+window.$vueApp.use(store)
+window.$vueApp.config.globalProperties.routerAppend = (path, pathToAppend) => {
+  return path + (path.endsWith('/') ? '' : '/') + pathToAppend
+}
+window.$vueApp.mount('#app')

@@ -1,7 +1,5 @@
-import _axios from "@/plugins/axios"
+import _axios from '@/plugins/axios'
 
-const getRadioList = () => _axios.post("/dj/catelist")
+const getRadioList = () => _axios.post('/dj/catelist')
 
-export {
-	getRadioList
-}
+export { getRadioList }

@@ -4,10 +4,10 @@ import axios from 'axios'
 import api from '../../config/api'
 
 const config = {
-	methods:"POST",
+  methods: 'POST',
   baseURL: api.base,
   timeout: 15000,
-  withCredentials: true
+  withCredentials: true,
 }
 
 const _axios = axios.create(config)

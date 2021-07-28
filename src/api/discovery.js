@@ -1,7 +1,5 @@
-import _axios from "@/plugins/axios"
+import _axios from '@/plugins/axios'
 
-const getDiscovery = () => _axios.post("/personalized")
+const getDiscovery = () => _axios.post('/personalized')
 
-export {
-	getDiscovery
-}
+export { getDiscovery }
