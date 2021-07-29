@@ -70,7 +70,7 @@ const routes = [
   {
     path: '/broadcast-radio',
     name: 'BroadcastRadio',
-    component: defineAsyncComponent(() => import('@/views/Radio')),
+    component: defineAsyncComponent(() => import('@/views/Radio/index.vue')),
     meta: {
       // keepAlive: true
     },
