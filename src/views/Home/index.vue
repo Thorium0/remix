@@ -8,20 +8,21 @@
 </template>
 
 <script>
+import {defineAsyncComponent} from "vue"
 import { mapState } from 'vuex'
 export default {
   name: 'Home',
   components: {
-    Slide: Vue.defineAsyncComponent(() =>
+    Slide: defineAsyncComponent(() =>
       import('./components/Slide/index.vue')
     ),
-    NewSongs: Vue.defineAsyncComponent(() =>
+    NewSongs: defineAsyncComponent(() =>
       import('./components/NewSongs/index.vue')
     ),
-    RecRadio: Vue.defineAsyncComponent(() =>
+    RecRadio: defineAsyncComponent(() =>
       import('./components/RecRadio/index.vue')
     ),
-    RecMV: Vue.defineAsyncComponent(() =>
+    RecMV: defineAsyncComponent(() =>
       import('./components/RecMV/index.vue')
     ),
   },

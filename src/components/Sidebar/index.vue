@@ -67,7 +67,7 @@ import {
   Heartbeat,
   Undo,
   LocalPin,
-} from '@icon-park/vue'
+} from '@icon-park/vue-next'
 export default {
   name: 'index',
   components: {

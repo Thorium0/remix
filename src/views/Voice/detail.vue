@@ -51,15 +51,17 @@
 </template>
 
 <script>
+import {defineAsyncComponent} from "vue";
 import { mapState } from 'vuex'
+
 export default {
   name: 'detail',
   components: {
-    ArtistAlbums: Vue.defineAsyncComponent(() =>
+    ArtistAlbums: defineAsyncComponent(() =>
       import('./components/ArtistAlbums')
     ),
-    ArtistMV: Vue.defineAsyncComponent(() => import('./components/ArtistMV')),
-    ArtistDetail: Vue.defineAsyncComponent(() =>
+    ArtistMV: defineAsyncComponent(() => import('./components/ArtistMV')),
+    ArtistDetail: defineAsyncComponent(() =>
       import('./components/ArtistDetail')
     ),
   },

@@ -32,7 +32,7 @@
 </template>
 
 <script>
-import { Play } from '@icon-park/vue'
+import { Play } from '@icon-park/vue-next'
 import round from 'lodash/round'
 import divide from 'lodash/divide'
 

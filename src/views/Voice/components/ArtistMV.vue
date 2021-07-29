@@ -5,11 +5,12 @@
 </template>
 
 <script>
+import {defineAsyncComponent} from "vue"
 import { mapState } from 'vuex'
 export default {
   name: 'mv',
   components: {
-    List: Vue.defineAsyncComponent(() => import('@/components/List')),
+    List: defineAsyncComponent(() => import('@/components/List')),
   },
   computed: mapState('voice', ['mv']),
 }

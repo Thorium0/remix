@@ -2,6 +2,7 @@
   <div class="relative slide">
     <vueper-slides
       autoplay
+	  :duration="2000"
       :bulletsOutside="false"
       :visible-slides="3"
       :gap="1.5"
@@ -9,6 +10,8 @@
       fixed-height="140px"
       :breakpoints="breakPoints"
       v-show="banners.length"
+	  lazy
+	  lazy-load-on-drag
     >
       <vueper-slide
         v-for="item in banners"

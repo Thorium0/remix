@@ -49,7 +49,7 @@
 </template>
 
 <script>
-import { Pause, Play, VolumeNotice, Left, Right } from '@icon-park/vue'
+import { Pause, Play, VolumeNotice, Left, Right } from '@icon-park/vue-next'
 
 export default {
   name: 'index',

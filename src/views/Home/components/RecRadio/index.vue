@@ -8,10 +8,11 @@
 </template>
 
 <script>
+import {defineAsyncComponent} from "vue"
 import { mapState } from 'vuex'
 export default {
   components: {
-    Recommend: Vue.defineAsyncComponent(() =>
+    Recommend: defineAsyncComponent(() =>
       import('@/components/Recommend/index.vue')
     ),
   },

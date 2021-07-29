@@ -27,11 +27,12 @@
 </template>
 
 <script>
+import {defineAsyncComponent} from "vue"
 import { mapState, mapActions } from 'vuex'
 export default {
   name: 'MV',
   components: {
-    List: Vue.defineAsyncComponent(() => import('@/components/List/index.vue')),
+    List: defineAsyncComponent(() => import('@/components/List/index.vue')),
   },
   data: () => ({
     area: ['全部', '内地', '港台', '欧美', '日本', '韩国'],

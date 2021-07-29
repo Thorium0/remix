@@ -1,6 +1,6 @@
-import * as Vue from 'vue'
-import * as VueRouter from 'vue-router'
-import Home from '@/views/Home'
+import {defineAsyncComponent} from "vue"
+import {createRouter,createWebHashHistory} from 'vue-router'
+import Home from '@/views/Home/index.vue'
 
 const routes = [
   {
@@ -14,7 +14,7 @@ const routes = [
   {
     path: '/discovery',
     name: 'Discovery',
-    component: Vue.defineAsyncComponent(
+    component: defineAsyncComponent(
       () => import('@/views/Discovery/index.vue')
     ),
     meta: {
@@ -24,7 +24,7 @@ const routes = [
   {
     path: '/mv',
     name: 'MV',
-    component: Vue.defineAsyncComponent(() => import('@/views/MV/index.vue')),
+    component: defineAsyncComponent(() => import('@/views/MV/index.vue')),
     meta: {
       keepAlive: true,
     },
@@ -32,12 +32,12 @@ const routes = [
   {
     path: '/mv/detail/:id',
     name: 'MVDetail',
-    component: Vue.defineAsyncComponent(() => import('@/views/MV/detail.vue')),
+    component: defineAsyncComponent(() => import('@/views/MV/detail.vue')),
   },
   {
     path: '/cd',
     name: 'CD',
-    component: Vue.defineAsyncComponent(() => import('@/views/CD/index.vue')),
+    component: defineAsyncComponent(() => import('@/views/CD/index.vue')),
     meta: {
       keepAlive: true,
     },
@@ -45,7 +45,7 @@ const routes = [
   {
     path: '/voice',
     name: 'Voice',
-    component: Vue.defineAsyncComponent(
+    component: defineAsyncComponent(
       () => import('@/views/Voice/index.vue')
     ),
     meta: {
@@ -55,14 +55,14 @@ const routes = [
   {
     path: '/voice/detail/:artistId',
     name: 'ArtistDetail',
-    component: Vue.defineAsyncComponent(
+    component: defineAsyncComponent(
       () => import('@/views/Voice/detail.vue')
     ),
   },
   {
     path: '/hot-artist',
     name: 'HotArtist',
-    component: Vue.defineAsyncComponent(() => import('@/views/HotArtist.vue')),
+    component: defineAsyncComponent(() => import('@/views/HotArtist.vue')),
     meta: {
       keepAlive: true,
     },
@@ -70,14 +70,15 @@ const routes = [
   {
     path: '/broadcast-radio',
     name: 'BroadcastRadio',
-    component: Vue.defineAsyncComponent(() => import('@/views/Radio')),
+    component: defineAsyncComponent(() => import('@/views/Radio')),
     meta: {
       // keepAlive: true
     },
   },
 ]
 
-const router = new VueRouter({
+const router = createRouter({
+	history:createWebHashHistory(),
   routes,
 })
 

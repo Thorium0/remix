@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { Play } from '@icon-park/vue'
+import { Play } from '@icon-park/vue-next'
 import divide from 'lodash/divide'
 import round from 'lodash/round'
 export default {

@@ -1,11 +1,10 @@
 'use strict'
 
 import axios from 'axios'
-import api from '../../config/api'
 
 const config = {
   methods: 'POST',
-  baseURL: api.base,
+  baseURL: "https://netease-cloud-music-api-rho-three.vercel.app/",
   timeout: 15000,
   withCredentials: true,
 }

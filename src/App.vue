@@ -2,9 +2,13 @@
   <div id="app">
     <Sidebar />
     <div class="main">
-      <keep-alive>
-        <router-view class="view" />
-      </keep-alive>
+		<router-view v-slot="{Component}" class="view">
+			<transition name="router-fade" mode="out-in">
+				<keep-alive>
+					<component :is="Component"/>
+				</keep-alive>
+			</transition>
+		</router-view>
       <Loading v-show="loading" />
     </div>
     <Player />
@@ -12,14 +16,15 @@
 </template>
 
 <script>
+import {defineAsyncComponent} from "vue";
 import { app } from '@tauri-apps/api'
 import { mapState } from 'vuex'
 
 export default {
   components: {
-    Sidebar: Vue.defineAsyncComponent(() => import('@/components/Sidebar')),
-    Player: Vue.defineAsyncComponent(() => import('@/components/Player')),
-    Loading: Vue.defineAsyncComponent(() =>
+    Sidebar: defineAsyncComponent(() => import('@/components/Sidebar/index.vue')),
+    Player: defineAsyncComponent(() => import('@/components/Player/index.vue')),
+    Loading: defineAsyncComponent(() =>
       import('@/components/Loading/index.vue')
     ),
   },

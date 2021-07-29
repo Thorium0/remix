@@ -13,14 +13,15 @@
 
 <script>
 // TODO login
-import { Setting, Search } from '@icon-park/vue'
+import {defineAsyncComponent} from "vue";
+import { Setting, Search } from '@icon-park/vue-next'
 
 export default {
   name: 'index',
   components: {
     Setting,
     Search,
-    LoginDialog: Vue.defineAsyncComponent(() =>
+    LoginDialog: defineAsyncComponent(() =>
       import('@/components/LoginDialog')
     ),
   },

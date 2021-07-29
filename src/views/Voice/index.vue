@@ -27,12 +27,13 @@
 </template>
 
 <script>
-import List from '@/components/List/index.vue'
+import {defineAsyncComponent} from "vue";
 import { mapState, mapActions } from 'vuex'
+
 export default {
   name: 'Voice',
   components: {
-    List,
+    List:defineAsyncComponent(()=>import('@/components/List/index.vue')),
   },
   data: () => ({
     area: [
