@@ -7,7 +7,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import List from '@/components/List'
+import List from '@/components/List/index.vue'
 export default {
   name: 'albums',
   components: {

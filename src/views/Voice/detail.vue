@@ -58,11 +58,11 @@ export default {
   name: 'detail',
   components: {
     ArtistAlbums: defineAsyncComponent(() =>
-      import('./components/ArtistAlbums')
+      import('./components/ArtistAlbums.vue')
     ),
     ArtistMV: defineAsyncComponent(() => import('./components/ArtistMV')),
     ArtistDetail: defineAsyncComponent(() =>
-      import('./components/ArtistDetail')
+      import('./components/ArtistDetail.vue')
     ),
   },
   data: () => ({

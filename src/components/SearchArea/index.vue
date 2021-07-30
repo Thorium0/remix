@@ -22,7 +22,7 @@ export default {
     Setting,
     Search,
     LoginDialog: defineAsyncComponent(() =>
-      import('@/components/LoginDialog')
+      import('@/components/LoginDialog/index.vue')
     ),
   },
   data: () => ({
