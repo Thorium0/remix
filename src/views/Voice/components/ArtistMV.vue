@@ -10,7 +10,7 @@ import { mapState } from 'vuex'
 export default {
   name: 'mv',
   components: {
-    List: defineAsyncComponent(() => import('@/components/List')),
+    List: defineAsyncComponent(() => import('@/components/List/index.vue')),
   },
   computed: mapState('voice', ['mv']),
 }

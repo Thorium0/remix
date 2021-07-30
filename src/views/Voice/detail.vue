@@ -60,7 +60,7 @@ export default {
     ArtistAlbums: defineAsyncComponent(() =>
       import('./components/ArtistAlbums.vue')
     ),
-    ArtistMV: defineAsyncComponent(() => import('./components/ArtistMV')),
+    ArtistMV: defineAsyncComponent(() => import('./components/ArtistMV.vue')),
     ArtistDetail: defineAsyncComponent(() =>
       import('./components/ArtistDetail.vue')
     ),
