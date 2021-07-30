@@ -2,7 +2,7 @@
   <div class="genres mr-4">
     <h2 class="flex mb-2 justify-between text-base leading-loose items-center">
       歌曲分类
-      <router-link to="/hot-artist" class="text-xs text-subText opacity-50"
+      <router-link to="/hot-artist" class="text-xs opacity-50"
         >全部</router-link
       >
     </h2>

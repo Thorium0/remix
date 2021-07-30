@@ -112,7 +112,7 @@ export default {
     @apply flex flex-wrap leading-8;
   }
   span {
-    @apply block w-12 text-center text-subText transition duration-500 ease-in-out cursor-pointer;
+    @apply block w-12 text-center transition duration-500 ease-in-out cursor-pointer;
     &.active {
       @apply text-red-500 transition-all duration-500 ease-in-out;
     }

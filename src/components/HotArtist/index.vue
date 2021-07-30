@@ -2,7 +2,7 @@
   <div class="hot-artist">
     <h2>
       热门歌手
-      <router-link to="/hot-artist" class="text-xs text-subText opacity-50"
+      <router-link to="/hot-artist" class="text-xs opacity-50"
         >全部</router-link
       >
     </h2>
