@@ -4,7 +4,7 @@ import axios from 'axios'
 
 const config = {
   methods: 'POST',
-  baseURL: "https://netease-cloud-music-api-rho-three.vercel.app/",
+  baseURL: "https://music.manon.icu/",
   timeout: 15000,
   withCredentials: true,
 }

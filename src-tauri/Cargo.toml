@@ -2,7 +2,7 @@
 name = "app"
 version = "0.1.0"
 description = "A Tauri App"
-authors = [ "you" ]
+authors = [ "Manon.icu" ]
 license = ""
 repository = ""
 default-run = "app"
@@ -17,8 +17,8 @@ serde_json = "1.0"
 serde = { version = "1.0", features = [ "derive" ] }
 
   [dependencies.tauri]
-  version = "1.0.0-beta"
-features = ["api-all"]
+  version = "1.0.0-beta.6"
+  features = ["api-all"]
 
 [features]
 default = [ "custom-protocol" ]

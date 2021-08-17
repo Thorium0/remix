@@ -40,16 +40,16 @@ export default {
   created() {
     this.GetList().then((_) => {
       this.$nextTick((_) => {
-        this.$anime({
-          targets: '.broadcast-radio .broadcast-radio-item',
-          scale: [
-            { value: 0.1, easing: 'easeOutSine', duration: 1000 },
-            { value: 1, easing: 'easeInOutQuad', duration: 1000 },
-          ],
-          opacity: [0, 1],
-          duration: 500,
-          delay: this.$anime.stagger(100, { from: 'center' }),
-        })
+        // this.$anime({
+        //   targets: '.broadcast-radio .broadcast-radio-item',
+        //   scale: [
+        //     { value: 0.1, easing: 'easeOutSine', duration: 1000 },
+        //     { value: 1, easing: 'easeInOutQuad', duration: 1000 },
+        //   ],
+        //   opacity: [0, 1],
+        //   duration: 500,
+        //   delay: this.$anime.stagger(100, { from: 'center' }),
+        // })
       })
     })
   },

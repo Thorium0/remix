@@ -2,34 +2,128 @@
 @tailwind components;
 @tailwind utilities;
 @import "variables";
+
+//@import url('https://fonts.loli.net/css2?family=Noto+Sans+SC&display=swap');
+
+html, body {
+	width: 100vw;
+	height: 100vh;
+	border-radius: 8px;
+	overflow: hidden;
+	overflow-y: scroll;
+	scroll-behavior: smooth;
+	background-color: #fff;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
+}
+
 #app {
-  	@apply grid w-screen h-screen text-xs bg-white;
-	grid-template-columns: 12rem 1fr;
+	@apply w-screen h-screen text-sm;
 }
 
 .btn-primary {
-  @apply block focus:outline-none text-white py-2.5 px-5 rounded-md hover:shadow-lg;
+	@apply block focus:outline-none text-white py-2.5 px-5 rounded-md hover:shadow-lg;
 }
 
 .input-primary {
-  @apply px-2 py-2 border-2 rounded-md border-gray-200 focus:outline-none focus:ring-1 focus:ring-pink-300 focus:border-transparent;
+	@apply px-2 py-2 border-2 rounded-md border-gray-200 focus:outline-none focus:ring-1 focus:ring-pink-300 focus:border-transparent;
 }
 
 ::-webkit-scrollbar {
 	display: none;
 }
 
-.filters{
+.filters {
 	@apply mb-4 leading-8 text-xs;
-	.area,.type{
-		em{
+	.area, .type {
+		em {
 			@apply font-medium not-italic;
 		}
-		span{
+
+		span {
 			@apply p-1.5 mr-4 transition duration-300 cursor-pointer;
-			&:hover,&.active{
+			&:hover, &.active {
 				@apply rounded text-white;
 			}
 		}
+	}
+}
+
+// img place
+.place-image {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 10;
+	background: url("/place.jpg") no-repeat scroll center;
+	background-size: cover;
+}
+
+.list {
+	@apply mt-12;
+
+	h2 {
+		@apply flex justify-between items-center text-2xl;
+		font-family: 'Roboto', sans-serif;
+		margin-bottom: 20px;
+		color: rgba(0, 0, 0, .9);
+
+		a {
+			@apply text-sm capitalize cursor-pointer;
+			color: #e72c30;
+			transition: all .2s;
+
+			&:hover {
+				opacity: .8;
+				transition: all .2s;
+			}
+		}
+	}
+
+	&-detail {
+		font-size: 16px;
+		margin-top: 6px;
+		color: rgba(0, 0, 0.9);
+		line-height: 1;
+
+		small {
+			display: block;
+			font-size: 12px;
+			margin-top: 3px;
+			color: #8e8e93;
+			text-overflow: ellipsis;
+			overflow: hidden;
+			white-space: nowrap;
+			text-align: left;
+		}
+	}
+}
+
+.list-slide {
+	@apply w-full;
+	.list-img {
+		@apply relative rounded overflow-hidden w-32 h-32 shadow-md;
+		.list-play {
+			@apply flex items-center justify-center absolute w-full h-full top-0 left-0 z-50 opacity-0;
+		}
+
+		&:hover {
+			.list-play {
+				@apply opacity-100;
+			}
+		}
+	}
+
+	.list-info {
+		@apply overflow-ellipsis overflow-hidden whitespace-nowrap text-xs mt-2 font-normal;
+		color: rgba(0, 0, 0, .9);
+	}
+}
+
+.swiper-round {
+	@apply text-center;
+	.list-img {
+		@apply rounded-full;
 	}
 }

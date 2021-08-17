@@ -1,10 +1,8 @@
 <template>
-  <div class="grid gap-4 home" v-show="!loading">
     <Slide />
     <NewSongs />
-    <RecRadio />
-    <RecMV />
-  </div>
+	<HotPlayList />
+	<HotRadio />
 </template>
 
 <script>
@@ -19,11 +17,11 @@ export default {
     NewSongs: defineAsyncComponent(() =>
       import('./components/NewSongs/index.vue')
     ),
-    RecRadio: defineAsyncComponent(() =>
+    HotRadio: defineAsyncComponent(() =>
       import('./components/RecRadio/index.vue')
     ),
-    RecMV: defineAsyncComponent(() =>
-      import('./components/RecMV/index.vue')
+    HotPlayList: defineAsyncComponent(() =>
+      import('./components/HotPlaylist/index.vue')
     ),
   },
   computed: mapState(['loading']),

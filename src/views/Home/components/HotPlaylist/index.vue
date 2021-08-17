@@ -1,14 +1,14 @@
 <template>
 	<Recommend
-		:title="'Hot Radio'"
-		:to="'/broadcast-radio'"
-		:list="dj"
-		name="radio"
+		:title="'Hot PlayList'"
+		:to="'/playlist'"
+		:list="playlist"
+		name="Hot PlayList"
 	>
 		<template #default>
-			<div class="swiper-slide swiper-round" v-for="{picUrl,name} in dj" :key="name">
+			<div class="swiper-slide swiper-round" v-for="{coverImagUrl,name} in playlist" :key="name">
 				<div class="list-img">
-					<img :data-src="picUrl" :data-srcset="picUrl" :alt="name"
+					<img :data-src="coverImagUrl" :data-srcset="coverImagUrl" :alt="name"
 						 class="swiper-lazy">
 					<div class="place-image"></div>
 					<div class="list-play">
@@ -33,7 +33,7 @@ export default {
 			import("@/components/Recommend/index.vue")
 		)
 	},
-	name: "RecRadio",
-	computed: mapState("home", ["dj"])
+	name: "HotPlayList",
+	computed: mapState("home", ["playlist"])
 };
 </script>

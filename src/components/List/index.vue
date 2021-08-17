@@ -117,7 +117,7 @@ export default {
     }
 
     p {
-      @apply w-full line-clamp-1 text-gray-500;
+      @apply w-full text-gray-500;
     }
   }
 }

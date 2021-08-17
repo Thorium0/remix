@@ -1,11 +1,10 @@
 <template>
   <Recommend
-    :title="'推荐歌单'"
-    :to="'/discovery'"
+    :title="'New Songs'"
+    :to="'/songs'"
     :list="songs"
     name="songs"
   />
-  <!--	<List :list="songs" :title="'推荐歌单'"/>-->
 </template>
 
 <script>

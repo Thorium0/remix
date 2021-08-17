@@ -5,9 +5,10 @@
 	},
 	"build": {
 		"distDir": "../dist",
-		"devPath": "http://localhost:8889",
-		"beforeDevCommand": "yarn serve",
-		"beforeBuildCommand": "yarn"
+		"devPath": "http://localhost:3000",
+		"beforeDevCommand": "yarn run  serve",
+		"beforeBuildCommand": "yarn run build",
+		"withGlobalTauri": false
 	},
 	"tauri": {
 		"bundle": {
@@ -51,11 +52,14 @@
 				"width": 900,
 				"height": 720,
 				"resizable": true,
-				"fullscreen": false
+				"fullscreen": false,
+				"skipTaskbar": true,
+				"decorations": false,
+				"transparent": true
 			}
 		],
 		"security": {
-			"csp": "default-src blob: data: filesystem: ws: http: https: 'unsafe-eval' 'unsafe-inline'"
+			"csp": "default-src blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self'"
 		}
 	}
 }
