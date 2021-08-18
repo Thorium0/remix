@@ -16,25 +16,7 @@
 			<router-link class="nav-link" :to="{path:'/'}">Podcast</router-link>
 			<router-link class="nav-link" :to="{path:'/'}">My Music</router-link>
 		</div>
-<!--		<div class=windows-buttons>-->
-<!--			<button class=windows-minimize></button>-->
-<!--			<button class=windows-maximize></button>-->
-<!--			<button class=windows-close></button>-->
-<!--		</div>-->
 	</div>
-<!--	<div class="top-bar">-->
-<!--		<div class="control" v-if="isApp">control</div>-->
-<!--		<div class="nav">-->
-<!--			<router-link class="nav-link" :to="{path:'/'}" active-class="active">All</router-link>-->
-<!--			<router-link class="nav-link" :to="{path:'/'}">Trending</router-link>-->
-<!--			<router-link class="nav-link" :to="{path:'/'}">New Release</router-link>-->
-<!--			<router-link class="nav-link" :to="{path:'/'}">Old Hits</router-link>-->
-<!--			<router-link class="nav-link" :to="{path:'/'}">Moods & Genres</router-link>-->
-<!--			<router-link class="nav-link" :to="{path:'/'}">Radio</router-link>-->
-<!--			<router-link class="nav-link" :to="{path:'/'}">Podcast</router-link>-->
-<!--			<router-link class="nav-link" :to="{path:'/'}">My Music</router-link>-->
-<!--		</div>-->
-<!--	</div>-->
 	<router-view v-slot="{Component}">
 		<div class="view">
 			<transition name="router-fade" mode="out-in">
@@ -45,7 +27,6 @@
 		</div>
 	</router-view>
 	<Loading v-show="loading" />
-	<!--    </div>-->
 	<Player />
 </template>
 

@@ -14,7 +14,7 @@
     "@icon-park/vue-next": "^1.3.5",
     "@tailwindcss/line-clamp": "^0.2.1",
     "@tauri-apps/api": "^1.0.0-beta.6",
-    "@tauri-apps/cli": "^1.0.0-beta.8",
+    "@tauri-apps/cli": "^1.0.0-beta.9",
     "@vueuse/core": "^6.0.0",
     "@vueuse/integrations": "^6.0.0",
     "core-js": "^3.16.1",
