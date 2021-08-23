@@ -9,23 +9,12 @@
 		<div class="nav">
 			<router-link class="nav-link" :to="{path:'/'}" active-class="active">All</router-link>
 			<router-link class="nav-link" :to="{path:'/'}">Trending</router-link>
-			<router-link class="nav-link" :to="{path:'/'}">New Release</router-link>
-			<router-link class="nav-link" :to="{path:'/'}">Old Hits</router-link>
-			<router-link class="nav-link" :to="{path:'/'}">Moods & Genres</router-link>
 			<router-link class="nav-link" :to="{path:'/'}">Radio</router-link>
 			<router-link class="nav-link" :to="{path:'/'}">Podcast</router-link>
-			<router-link class="nav-link" :to="{path:'/'}">My Music</router-link>
+			<router-link class="nav-link" :to="{path:'/'}">Library</router-link>
 		</div>
 	</div>
-	<router-view v-slot="{Component}">
-		<div class="view">
-			<transition name="router-fade" mode="out-in">
-				<keep-alive>
-					<component :is="Component" />
-				</keep-alive>
-			</transition>
-		</div>
-	</router-view>
+	<router-view class="flex-auto view"/>
 	<Loading v-show="loading" />
 	<Player />
 </template>
@@ -38,7 +27,6 @@ import {mapState} from "vuex";
 
 export default {
 	components: {
-		Sidebar: defineAsyncComponent(() => import("@/components/Sidebar/index.vue")),
 		Player: defineAsyncComponent(() => import("@/components/Player/index.vue")),
 		Loading: defineAsyncComponent(() =>
 			import("@/components/Loading/index.vue")
@@ -76,9 +64,8 @@ export default {
 
 <style lang="scss" scoped>
 .view {
-	@apply relative w-full p-4 overflow-hidden overflow-y-scroll;
+	@apply relative w-full p-10 overflow-hidden;
 	scroll-behavior: smooth;
-	height: calc(100vh - 2.5rem);
 }
 
 .top-bar {
@@ -86,7 +73,7 @@ export default {
 	border-radius: 8px;
 	font-family: 'Roboto', sans-serif;
 	z-index: 9999;
-	@apply bg-white h-10 w-screen flex justify-between items-center;
+	@apply flex-none bg-white h-12 w-screen flex justify-between items-center;
 
 	.nav {
 		@apply flex items-center text-sm;

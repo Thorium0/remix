@@ -17,7 +17,7 @@ html, body {
 }
 
 #app {
-	@apply w-screen h-screen text-sm;
+	@apply flex flex-col justify-between w-screen h-screen text-sm;
 }
 
 .btn-primary {
@@ -103,7 +103,7 @@ html, body {
 .list-slide {
 	@apply w-full;
 	.list-img {
-		@apply relative rounded overflow-hidden w-32 h-32 shadow-md;
+		@apply relative rounded overflow-hidden shadow-md;
 		.list-play {
 			@apply flex items-center justify-center absolute w-full h-full top-0 left-0 z-50 opacity-0;
 		}

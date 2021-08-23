@@ -1,64 +1,66 @@
 <template>
-  <div class="player">
-    <div class="player-detail">
-      <img :src="curSong.pic" :alt="curSong.title" />
-      <div class="detail text-sm">
-        {{ curSong.title }}
-        <em>{{ curSong.author }}</em>
-      </div>
-    </div>
-    <div class="player-operator">
-      <div class="prev" id="prev"><Left size="24" /></div>
+  <div class="player flex w-screen h-20 p-4">
+    <div class="player-operator flex items-center">
+      <div class="prev" id="prev"><GoStart size="24" /></div>
       <div
         class="play mx-10"
         id="play"
         @click="isPlaying ? pauseSong() : playSong()"
       >
         <Pause v-if="isPlaying" size="24" />
-        <Play v-else size="24" />
+        <PlayOne v-else size="24" fill="red" />
       </div>
-      <div class="next" id="next"><Right size="24" /></div>
+      <div class="next" id="next"><GoEnd size="24" /></div>
+
+		<small>{{ `${curSong.curTime} / ${curSong.durationTime}`}}</small>
     </div>
-    <div
-      class="
-        cur
-        h-full
-        py-2
-        relative
-        flex
-        justify-between
-        items-center
-        flex-grow
-      "
-    >
-      {{ curSong.curTime || '00:00'
-      }}<progress
-        :value="curSong.percent"
-        max="100"
-        @click="setProgress($event)"
-      ></progress
-      >{{ curSong.durationTime || '00:00' }}
-    </div>
-    <div class="player-volume">
-      <!--			<svg-icon icon-class="volume-mute" class="mr-4" size="xl" @click.stop="volume=0"></svg-icon>-->
-      <!--			<progress :value="volume" max="100" @click="setVolume($event)" class="mr-4 w-20"></progress>-->
-      <VolumeNotice @click.stop="volume = 100" size="24" />
-    </div>
+	  <div class="player-detail flex items-center">
+		  <img :src="curSong.pic" :alt="curSong.title" class="mr-2 w-12 h-12 rounded object-cover" />
+		  <div class="detail text-base">
+			  {{ curSong.title }}
+			  <small class="block text-xs opacity-30">{{ curSong.author }}</small>
+		  </div>
+	  </div>
+	  <div class="volume"></div>
+<!--    <div-->
+<!--      class="-->
+<!--        cur-->
+<!--        h-full-->
+<!--        py-2-->
+<!--        relative-->
+<!--        flex-->
+<!--        justify-between-->
+<!--        items-center-->
+<!--        flex-grow-->
+<!--      "-->
+<!--    >-->
+<!--      {{ curSong.curTime || '00:00'-->
+<!--      }}<progress-->
+<!--        :value="curSong.percent"-->
+<!--        max="100"-->
+<!--        @click="setProgress($event)"-->
+<!--      ></progress-->
+<!--      >{{ curSong.durationTime || '00:00' }}-->
+<!--    </div>-->
+<!--    <div class="player-volume">-->
+<!--      &lt;!&ndash;			<svg-icon icon-class="volume-mute" class="mr-4" size="xl" @click.stop="volume=0"></svg-icon>&ndash;&gt;-->
+<!--      &lt;!&ndash;			<progress :value="volume" max="100" @click="setVolume($event)" class="mr-4 w-20"></progress>&ndash;&gt;-->
+<!--      <VolumeNotice @click.stop="volume = 100" size="24" />-->
+<!--    </div>-->
     <audio :src="curSong.src" ref="audio" class="hidden"></audio>
   </div>
 </template>
 
 <script>
-import { Pause, Play, VolumeNotice, Left, Right } from '@icon-park/vue-next'
+import { GoEnd,GoStart,Pause, PlayOne, VolumeNotice } from '@icon-park/vue-next'
 
 export default {
-  name: 'index',
+  name: 'Player',
   components: {
     Pause,
-    Play,
+	  PlayOne,
     VolumeNotice,
-    Left,
-    Right,
+	  GoEnd,GoStart
   },
   data() {
     return {
@@ -171,34 +173,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.player {
-  @apply fixed bottom-0 left-0 w-screen h-16 flex items-center z-50 text-white;
-  &-detail {
-    @apply font-medium flex flex-none w-48 pl-4;
-    img {
-      @apply mr-2 w-10 h-10 rounded-full;
-    }
-    .detail {
-      @apply text-sm;
-    }
-    em {
-      @apply block not-italic text-xs opacity-70 font-normal;
-    }
-  }
-  &-operator {
-    @apply w-44 flex flex-none;
-  }
-  &-volume {
-    @apply w-1/12 h-full flex items-center flex-none justify-end pr-4;
-  }
-}
-progress {
-  @apply block w-full rounded bg-gray-100 h-1 mx-4 appearance-none;
-  &::-webkit-progress-bar {
-    @apply bg-gray-100;
-  }
-  &::-webkit-progress-value {
-    @apply bg-gray-600;
-  }
+.player{
+	background: #ffffff;
+	box-shadow: 0 -4px 8px rgba(0,0,0,.1);
 }
 </style>

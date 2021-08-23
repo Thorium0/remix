@@ -5,20 +5,9 @@
 		:list="dj"
 		name="radio"
 	>
-		<template #default>
-			<div class="swiper-slide swiper-round" v-for="{picUrl,name} in dj" :key="name">
-				<div class="list-img">
-					<img :data-src="picUrl" :data-srcset="picUrl" :alt="name"
+		<template #default="{item}">
+					<img :data-src="item.picUrl" :data-srcset="item.picUrl" :alt="item.name"
 						 class="swiper-lazy">
-					<div class="place-image"></div>
-					<div class="list-play">
-						<Play size="40" fill="rgba(0,0,0,.3)" />
-					</div>
-				</div>
-				<div class="list-info">
-					{{ name }}
-				</div>
-			</div>
 		</template>
 	</Recommend>
 </template>

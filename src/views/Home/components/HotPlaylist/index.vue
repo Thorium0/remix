@@ -5,20 +5,9 @@
 		:list="playlist"
 		name="Hot PlayList"
 	>
-		<template #default>
-			<div class="swiper-slide swiper-round" v-for="{coverImagUrl,name} in playlist" :key="name">
-				<div class="list-img">
-					<img :data-src="coverImagUrl" :data-srcset="coverImagUrl" :alt="name"
+		<template #default="{item}">
+			<img :data-src="item.coverImgUrl" :data-srcset="item.coverImgUrl" :alt="item.name"
 						 class="swiper-lazy">
-					<div class="place-image"></div>
-					<div class="list-play">
-						<Play size="40" fill="rgba(0,0,0,.3)" />
-					</div>
-				</div>
-				<div class="list-info">
-					{{ name }}
-				</div>
-			</div>
 		</template>
 	</Recommend>
 </template>

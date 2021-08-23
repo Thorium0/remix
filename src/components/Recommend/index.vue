@@ -6,21 +6,21 @@
 		<div class="list-slide">
 			<div class="swiper-container" ref="listSwiper">
 				<div class="swiper-wrapper">
-					<slot>
-						<div class="swiper-slide" v-for="{album,artists,name} in list" :key="name">
-							<div class="list-img">
-								<img :data-src="album.picUrl" :data-srcset="album.picUrl" :alt="artists"
-									 class="swiper-lazy">
+						<div class="swiper-slide" v-for="item in list" :key="item.name">
+							<div class="list-img w-full">
+								<slot :item="item">
+									<img :src="item.img" :data-src="item.album.picUrl" :data-srcset="item.album.picUrl" :alt="item.artists"
+									 class="swiper-lazy w-full h-auto object-cover">
+								</slot>
 								<div class="place-image"></div>
 								<div class="list-play">
 									<Play size="40" fill="rgba(0,0,0,.3)" />
 								</div>
 							</div>
 							<div class="list-info">
-								{{ name }}
+								{{ item.name }}
 							</div>
 						</div>
-					</slot>
 				</div>
 				<button class="btn btn_prev sm-hide disable" title="Previous">
 					<svg width="7" height="12" viewBox="0 0 10 17">

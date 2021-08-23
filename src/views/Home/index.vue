@@ -1,8 +1,10 @@
 <template>
-    <Slide />
-    <NewSongs />
-	<HotPlayList />
-	<HotRadio />
+	<div class="home">
+		<Slide />
+		<NewSongs />
+			<HotPlayList />
+			<HotRadio />
+	</div>
 </template>
 
 <script>
@@ -30,3 +32,10 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+  .home {
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+  }
+</style>
