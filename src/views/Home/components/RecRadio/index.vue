@@ -1,14 +1,28 @@
 <template>
-	<Recommend :title="'推荐电台'" :to="'/broadcast-radio'" :list="dj" name="radio" />
+	<Recommend
+		:title="'Hot Radio'"
+		:to="'/broadcast-radio'"
+		:list="dj"
+		name="radio"
+	>
+		<template #default="{item}">
+					<img :data-src="item.picUrl" :data-srcset="item.picUrl" :alt="item.name"
+						 class="swiper-lazy">
+		</template>
+	</Recommend>
 </template>
 
 <script>
-import {mapState} from "vuex"
+import {defineAsyncComponent} from "vue";
+import {mapState} from "vuex";
+
 export default {
-	components:{
-		Recommend:()=>import("@/components/Recommend/index.vue")
+	components: {
+		Recommend: defineAsyncComponent(() =>
+			import("@/components/Recommend/index.vue")
+		)
 	},
 	name: "RecRadio",
-	computed:mapState('home',['dj'])
+	computed: mapState("home", ["dj"])
 };
 </script>

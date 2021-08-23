@@ -1,13 +1,12 @@
 'use strict'
 
 import axios from 'axios'
-import api from '../../config/api'
 
 const config = {
-	methods:"POST",
-  baseURL: api.base,
+  methods: 'POST',
+  baseURL: "https://music.manon.icu/",
   timeout: 15000,
-  withCredentials: true
+  withCredentials: true,
 }
 
 const _axios = axios.create(config)

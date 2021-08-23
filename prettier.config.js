@@ -13,7 +13,7 @@ module.exports = {
   printWidth: 120,
   semi: true,
   singleQuote: false,
-  tabWidth: 4,
+  tabWidth: 2,
   trailingComma: 'none',
   requirePragma: true,
   useTabs: true

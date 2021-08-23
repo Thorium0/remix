@@ -5,22 +5,17 @@
 	},
 	"build": {
 		"distDir": "../dist",
-		"devPath": "http://localhost:8889",
-		"beforeDevCommand": "npm run serve",
-		"beforeBuildCommand": "npm run build"
+		"devPath": "http://localhost:3000",
+		"beforeDevCommand": "yarn run  serve",
+		"beforeBuildCommand": "yarn run build",
+		"withGlobalTauri": false
 	},
 	"tauri": {
 		"bundle": {
 			"active": true,
 			"targets": "all",
 			"identifier": "com.tauri.dev",
-			"icon": [
-				"icons/32x32.png",
-				"icons/128x128.png",
-				"icons/128x128@2x.png",
-				"icons/icon.icns",
-				"icons/icon.ico"
-			],
+			"icon": ["icons/32x32.png", "icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"],
 			"resources": [],
 			"externalBin": [],
 			"copyright": "",
@@ -45,6 +40,10 @@
 				"timestampUrl": ""
 			}
 		},
+		"systemTray": {
+			"iconPath": "icons/icon.png",
+			"iconAsTemplate": true
+		},
 		"updater": {
 			"active": false
 		},
@@ -54,14 +53,17 @@
 		"windows": [
 			{
 				"title": "Remix",
-				"width": 900,
-				"height": 720,
+				"width": 1200,
+				"height": 800,
 				"resizable": true,
-				"fullscreen": false
+				"fullscreen": false,
+				"skipTaskbar": false,
+				"decorations": false,
+				"transparent": true
 			}
 		],
 		"security": {
-			"csp": "default-src blob: data: filesystem: ws: http: https: 'unsafe-eval' 'unsafe-inline'"
+			"csp": "default-src blob: data: filesystem: ws: wss: http: https: tauri: 'unsafe-eval' 'unsafe-inline' 'self'"
 		}
 	}
 }

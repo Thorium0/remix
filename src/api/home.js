@@ -1,13 +1,7 @@
-import _axios from "@/plugins/axios"
+import _axios from "@/plugins/axios";
 
-const getBanners = () => _axios.post("/banner")
-const getRecSongs = () => _axios.post("/personalized?limit=12")
-const getRecMV = () => _axios.post("/personalized/mv")
-const getRecDJ = () => _axios.post("/personalized/djprogram")
-
-export {
-	getBanners,
-	getRecSongs,
-	getRecMV,
-	getRecDJ
-}
+export const getBanners = () => _axios.post("/banner");
+export const getNewSongs = () => _axios.post("/top/song?type=0");
+export const getRecMV = () => _axios.post("/personalized/mv");
+export const getHotDj = () => _axios.post("/dj/hot");
+export const getHotPlayList = () => _axios.post("/top/playlist/highquality");

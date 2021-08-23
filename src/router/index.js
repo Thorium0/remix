@@ -1,80 +1,82 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '@/views/Home'
-
-Vue.use(VueRouter)
+import {createRouter, createWebHashHistory} from "vue-router";
+import Home from "@/views/Home/index.vue";
 
 const routes = [
 	{
-		path: '/',
-		name: 'Home',
+		path: "/",
+		name: "Home",
 		component: Home,
 		meta: {
-			keepAlive: true
+			// keepAlive: true,
 		}
 	},
 	{
-		path: '/discovery',
-		name: 'Discovery',
-		component: () => import(/* webpackChunkName: "discovery" */ '@/views/Discovery/index.vue'),
+		path: "/songs",
+		name: "Songs",
+		component: () => import("@/views/Songs/index.vue"),
 		meta: {
-			keepAlive: true
+			// keepAlive: true,
 		}
 	},
 	{
-		path: '/mv',
-		name: 'MV',
-		component: () => import(/* webpackChunkName: "mv" */ '@/views/MV/index.vue'),
+		path: "/mv",
+		name: "MV",
+		component: () => import("@/views/MV/index.vue"),
 		meta: {
-			keepAlive: true
+			// keepAlive: true,
 		}
 	},
 	{
-		path: '/mv/detail/:id',
-		name: 'MVDetail',
-		component: () => import(/* webpackChunkName: "mvDetail" */ '@/views/MV/detail.vue'),
+		path: "/mv/detail/:id",
+		name: "MVDetail",
+		component: () => import("@/views/MV/detail.vue")
 	},
 	{
-		path: '/cd',
-		name: 'CD',
-		component: () => import(/* webpackChunkName: "cd" */ '@/views/CD/index.vue'),
+		path: "/cd",
+		name: "CD",
+		component: () => import("@/views/CD/index.vue"),
 		meta: {
-			keepAlive: true
+			// keepAlive: true,
 		}
 	},
 	{
-		path: '/voice',
-		name: 'Voice',
-		component: () => import(/* webpackChunkName: "voice" */ '@/views/Voice/index.vue'),
+		path: "/voice",
+		name: "Voice",
+		component:
+			() => import("@/views/Voice/index.vue"),
+
 		meta: {
-			keepAlive: true
+			// keepAlive: true,
 		}
 	},
 	{
-		path:"/voice/detail/:artistId",
-		name:"ArtistDetail",
-		component:()=>import(/* webpackChunkName: "voiceDetail" */ '@/views/Voice/detail.vue')
+		path: "/voice/detail/:artistId",
+		name: "ArtistDetail",
+		component:
+			() => import("@/views/Voice/detail.vue")
+
 	},
 	{
-		path: '/hot-artist',
-		name: 'HotArtist',
-		component: () => import(/* webpackChunkName: "hotArtist" */ '@/views/HotArtist.vue'),
-		meta:{
-			keepAlive: true
+		path: "/hot-artist",
+		name: "HotArtist",
+		component: () => import("@/views/HotArtist.vue"),
+		meta: {
+			// keepAlive: true,
 		}
 	},
 	{
-		path: '/broadcast-radio',
-		name: 'BroadcastRadio',
-		component: () => import(/* webpackChunkName: "broadcastRadio" */ '@/views/Radio'),
+		path: "/broadcast-radio",
+		name: "BroadcastRadio",
+		component: () => import("@/views/Radio/index.vue"),
 		meta: {
 			// keepAlive: true
 		}
 	}
-]
+];
 
-const router = new VueRouter({
-  routes
-})
+const router = createRouter({
+	history: createWebHashHistory(),
+	routes
+});
 
-export default router
+export default router;

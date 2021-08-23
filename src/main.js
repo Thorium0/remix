@@ -1,15 +1,15 @@
-import Vue from 'vue'
-import './assets/base.scss'
-import App from './App.vue'
-import router from './router'
-import store from './store'
-import 'lazysizes';
-import anime from "animejs"
+import {createApp} from "vue";
+import "./assets/base.scss";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
 
-Vue.prototype.$anime=anime
+const app = createApp(App);
 
-new Vue({
-  router,
-  store,
-  render: (h) => h(App)
-}).$mount('#app')
+// 注册全局组件
+import * as Components from "./global-components";
+Object.entries(Components).forEach(([key, component]) => {
+	app.component(key, component);
+});
+
+app.use(router).use(store).mount("#app");
