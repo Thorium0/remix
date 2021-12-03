@@ -18,7 +18,7 @@ import {defineComponent} from "vue";
 import {mapState} from "vuex";
 import Swiper from "swiper";
 import SwiperCore, {Lazy, Autoplay, Navigation} from "swiper/core";
-import "swiper/swiper-bundle.css";
+import "swiper/css/bundle";
 
 SwiperCore.use([Lazy, Autoplay, Navigation]);
 

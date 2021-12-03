@@ -43,7 +43,7 @@
 import {defineComponent} from "vue";
 import Swiper from "swiper";
 import SwiperCore, {Autoplay, Navigation, Lazy} from "swiper/core";
-import "swiper/swiper-bundle.css";
+import "swiper/css/bundle";
 import {Play} from "@icon-park/vue-next";
 
 SwiperCore.use([Lazy, Autoplay, Navigation]);
